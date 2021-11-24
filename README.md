@@ -3,5 +3,12 @@ Repositorio realizado para el proyecto de la asignatura  Ingeniería del Softwar
 
 #  Integrantes del proyecto
 
+María Victoria Alcázar Clemente 
+Diego Alba Ruiz 
+Alejandro Paniagua Rodríguez 
+Enrique Rubio Gonzalo 
+Clara Sacedón Ortega 
+
+
 
 
