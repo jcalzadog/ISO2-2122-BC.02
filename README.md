@@ -7,6 +7,8 @@ Repositorio realizado para el proyecto de la asignatura  Ingeniería del Softwar
 
 •	Alejandro Paniagua Rodríguez  - alejandro.paniagua1@alu.uclm.es
 
+•	Jesús Calzado Gonzalez - Jesus.Calzado@alu.uclm.es
+
 •	Enrique Rubio Gonzalo - enrique.rubio2@alu.uclm.es
 
 •	Clara Sacedón Ortega - clara.sacedon@alu.uclm.es
