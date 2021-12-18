@@ -4,6 +4,8 @@
  */
 package Dominio;
 
+import esi.uclm.gepi.Dominio.Enfermedad;
+
 
 public class Iteracion1 {
     

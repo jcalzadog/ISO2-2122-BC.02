@@ -14,9 +14,9 @@ public class Agente {
   // Conexion con la base de datos
   protected static Connection mBD;
   // Identificador ODBC de la base de datos
-  private static String url = "jdbc:mysql://localhost:3307/practicabd?user=alumno&password=alumno";
+  private static String url = "jdbc:mysql://vl22352.dinaserver.com/gepi?user=gepi&password=$H6|mk4w53oD&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
   // Driven para conectar con bases de datos MySQL
-  private static String driver = "com.mysql.jdbc.Driver";
+  private static String driver = "com.mysql.cj.jdbc.Driver";
 
   // Constructor
   private Agente() throws Exception {
@@ -75,7 +75,7 @@ public class Agente {
     return res;
   }
 
-  public Vector<Object> select(String SQL) throws SQLException, Exception {
+  public Vector<Object> select(String SQL, int num) throws SQLException, Exception {
     /*
      * Metodo para realizar una busqueda o seleccion de informacion enla base de
      * datos El mŽtodo select develve un vector de vectores, donde cada uno de los
@@ -88,9 +88,19 @@ public class Agente {
     Statement stmt = mBD.createStatement();
     ResultSet res = stmt.executeQuery(SQL);
     while (res.next()) {
+   
       Vector<Object> v = new Vector<Object>();
-      v.add(res.getObject(1));
-      v.add(res.getObject(2));
+      
+      if(num == 7){
+        v.add(res.getObject(1));
+        v.add(res.getObject(2));
+        v.add(res.getObject(3));
+        v.add(res.getObject(4));
+        v.add(res.getObject(5));
+        v.add(res.getObject(6));
+        v.add(res.getObject(7));
+      }
+      
       vectoradevolver.add(v);
     }
     stmt.close();

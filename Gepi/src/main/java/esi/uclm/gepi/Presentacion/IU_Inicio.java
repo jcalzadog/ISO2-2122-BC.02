@@ -5,20 +5,25 @@
  */
 package esi.uclm.gepi.Presentacion;
 
+import Persistencia.Agente;
+import esi.uclm.gepi.Dominio.GestorEnfermedades;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author alex_
  */
 public class IU_Inicio extends javax.swing.JFrame {
-
-    
-    IU_Gestion gestion = new IU_Gestion(this,true);
-    
     /**
      * Creates new form NewJFrame
      */
     public IU_Inicio() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("GEPI");
+        this.setResizable(false);
     }
 
     /**
@@ -62,6 +67,7 @@ public class IU_Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        IU_Gestion gestion = new IU_Gestion(this,true);
         gestion.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
