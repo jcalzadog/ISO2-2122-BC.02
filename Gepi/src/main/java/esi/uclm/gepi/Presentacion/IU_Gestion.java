@@ -9,12 +9,13 @@ package esi.uclm.gepi.Presentacion;
  *
  * @author alex_
  */
-public class IU_Gestion extends javax.swing.JFrame {
+public class IU_Gestion extends javax.swing.JDialog {
 
     /**
-     * Creates new form IU_Gestión
+     * Creates new form IU_Gestion
      */
-    public IU_Gestion() {
+    public IU_Gestion(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -27,7 +28,7 @@ public class IU_Gestion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,12 +70,18 @@ public class IU_Gestion extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(IU_Gestion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IU_Gestion().setVisible(true);
+                IU_Gestion dialog = new IU_Gestion(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }

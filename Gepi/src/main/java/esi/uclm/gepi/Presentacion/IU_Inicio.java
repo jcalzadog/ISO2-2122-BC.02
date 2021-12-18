@@ -12,7 +12,7 @@ package esi.uclm.gepi.Presentacion;
 public class IU_Inicio extends javax.swing.JFrame {
 
     
-    IU_Gestion gestion = new IU_Gestion();
+    IU_Gestion gestion = new IU_Gestion(null,true);
     
     /**
      * Creates new form NewJFrame
