@@ -12,7 +12,7 @@ package esi.uclm.gepi.Presentacion;
 public class IU_Inicio extends javax.swing.JFrame {
 
     
-    IU_Gestion gestion = new IU_Gestion(null,true);
+    IU_Gestion gestion = new IU_Gestion(this,true);
     
     /**
      * Creates new form NewJFrame
@@ -76,7 +76,7 @@ public class IU_Inicio extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
