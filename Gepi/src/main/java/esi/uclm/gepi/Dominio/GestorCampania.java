@@ -34,4 +34,20 @@ public class GestorCampania {
         
     }
     
+    public int anadirCampania(String tipo, String nombre, String fecha, String coste, String tempo, String efec) throws Exception{
+        Campania campania = new Campania();
+        
+        campania.setTipo(tipo);
+        campania.setNombre(nombre);
+        campania.setFecha(fecha);
+        campania.setCoste(Double.parseDouble(coste));
+        campania.setTemporalidad(Integer.parseInt(tempo));
+        campania.setEfectividad(Double.parseDouble(efec));
+        
+        String consulta = "INSERT INTO Campania VALUES (null,'"+ campania.getTipo()+"','"+ campania.getNombre()+"','"+ campania.getFecha() +"',"+ campania.getCoste() +","+ campania.getTemporalidad() +","+ campania.getEfectividad()+")";
+   
+        int resultado = this.agente.insert(consulta);
+        
+        return resultado;
+    }
 }
