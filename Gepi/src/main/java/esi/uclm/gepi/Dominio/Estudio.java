@@ -9,9 +9,9 @@ package esi.uclm.gepi.Dominio;
 
 public class Estudio {
     
- Enfermedad enfermedad;
- Campania campaniaVacunacion;
- String municipio;
+    Enfermedad enfermedad;
+    Campania campaniaVacunacion;
+    String municipio;
 
     public Estudio(Enfermedad enfermedad, Campania campaniaVacunacion, String municipio) {
         this.enfermedad = enfermedad;

@@ -11,27 +11,26 @@ import java.util.Vector;
  *
  * @author alex_
  */
-public class GestorCampania {
+public class GestorEstudio {
     
     Agente agente;
     
-    public GestorCampania() throws Exception {
+    public GestorEstudio() throws Exception {
         this.agente = Agente.getAgente();
     }
     
-    public Vector getCampanias(){
+    public Vector getEstudios(){
         
-        Vector<Object> campanias = null;
+        Vector<Object> estudios = null;
         
         try {
-            campanias = this.agente.select("SELECT * FROM Campania",7);
+            estudios = this.agente.select("SELECT es.ID, en.Nombre, c.Tipo, es.Municipio FROM Estudio es, Enfermedad en, Campania c WHERE es.Enfermedad = en.ID AND es.Campania = c.ID",4);
            
         } catch (Exception ex) {
             System.out.println(ex);
         }
         
-        return campanias;
+        return estudios;
         
     }
-    
 }

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,11 +18,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class IU_Gestion extends javax.swing.JDialog {
  
-    
+    Object[] enfermedadCol = {"ID","Nombre","Sintomas","Temporalidad","Medicina","Confinamiento","Vacunas"};
+    Vector enfermedades = new Vector();
     GestorEnfermedades gestorEnfermedad;
     GestorCampania gestorCampania;
-    Vector<Object> enfermedades;
-    Object[] nombreColum = {"ID","Nombre","Sintomas","Temporalidad","Medicina","Confinamiento","Vacunas"};
+    GestorEstudio gestorEstudio;
+    
     /**
      * Creates new form IU_Gestion
      */
@@ -29,16 +31,19 @@ public class IU_Gestion extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Mostrar listado");
+        ImageIcon imgIconApp = new ImageIcon("src/main/resources/Imagenes/icono.png");
+        this.setIconImage(imgIconApp.getImage());
+        this.setTitle("Gestion");
         this.setResizable(false);
         
-        try{
-           GestorEnfermedades gestorEnfermedad = new GestorEnfermedades();
-           enfermedades = gestorEnfermedad.getEnfermedades();
-           rellenarTabla(enfermedades,nombreColum);
-        }catch(Exception ex){
-            
+        try {
+            gestorEnfermedad = new GestorEnfermedades();
+            enfermedades = gestorEnfermedad.getEnfermedades();
+            rellenarTabla(enfermedades,enfermedadCol);
+        } catch (Exception ex) {
+            Logger.getLogger(IU_Gestion.class.getName()).log(Level.SEVERE, null, ex);
         }
+                
     }
 
     /**
@@ -53,6 +58,7 @@ public class IU_Gestion extends javax.swing.JDialog {
         tipoVariable = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
+        TextoAMostrar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -76,54 +82,61 @@ public class IU_Gestion extends javax.swing.JDialog {
         ));
         jScrollPane2.setViewportView(tabla);
 
+        TextoAMostrar.setText("Seleccione la opción que desea mostrar:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tipoVariable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 277, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(TextoAMostrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tipoVariable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(tipoVariable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tipoVariable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextoAMostrar))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void tipoVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoVariableActionPerformed
-        // TODO add your handling code here:
-        
         try {
-            if(tipoVariable.getSelectedIndex() == 0){
-                rellenarTabla(enfermedades,nombreColum);
-            }else if(tipoVariable.getSelectedIndex() == 1){
-                gestorCampania = new GestorCampania();
-                Vector campanias = gestorCampania.getCampanias();
-                Object[] campaniaCol = {"ID","Tipo","Nombre","Fecha","Coste","Temporalidad","Efectividad"};
+            switch(tipoVariable.getSelectedIndex()){
+                case 0:
+                    rellenarTabla(enfermedades,enfermedadCol);
+                    break;
+                case 1:
+                    Object[] campaniaCol = {"ID","Tipo","Nombre","Fecha","Coste","Temporalidad","Efectividad"};
+                    gestorCampania = new GestorCampania();
+                    Vector campanias = gestorCampania.getCampanias();
+                    
+                    rellenarTabla(campanias,campaniaCol);
+                    break;
+                case 2:
+                    Object[] estudioCol = {"ID","Enfermedad","Campaña","Municipio"};
+                    gestorEstudio = new GestorEstudio();
+                    Vector estudios = gestorEstudio.getEstudios();
 
-                rellenarTabla(campanias,campaniaCol);
-            }else{ 
-                Object[] nombreColum = {"ID","Enfermedad","Campaña","Municipio"};
-
-                rellenarTabla(enfermedades,nombreColum);
+                    rellenarTabla(estudios, estudioCol);
+                    break;
             }
-         } catch (Exception ex) {
-                Logger.getLogger(IU_Gestion.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }//GEN-LAST:event_tipoVariableActionPerformed
 
     /**
@@ -169,7 +182,6 @@ public class IU_Gestion extends javax.swing.JDialog {
     }
 
     public void rellenarTabla(Vector tipo, Object[] columna){
-        
         tabla.getTableHeader().setReorderingAllowed(false);
         DefaultTableModel modelo = new DefaultTableModel(){
             @Override
@@ -184,12 +196,10 @@ public class IU_Gestion extends javax.swing.JDialog {
         }
         //Asigna el modelo a la tabla
         tabla.setModel(modelo);
-        
     }
-    
-    
-    
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel TextoAMostrar;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tabla;
     private javax.swing.JComboBox<String> tipoVariable;
