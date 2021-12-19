@@ -6,6 +6,7 @@ package esi.uclm.gepi.Presentacion;
 
 import esi.uclm.gepi.Dominio.GestorAprovisionamiento;
 import esi.uclm.gepi.Dominio.GestorCampania;
+import esi.uclm.gepi.Dominio.GestorPersona;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,7 +35,6 @@ public class IU_Vacunas extends javax.swing.JDialog {
         this.setIconImage(imgIconApp.getImage());
         this.setTitle("GEPI");
         this.setResizable(false);
-        
         rellenarTabla();
         rellenarLista();
     }
@@ -67,6 +67,9 @@ public class IU_Vacunas extends javax.swing.JDialog {
         limpiarCampania = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -78,7 +81,7 @@ public class IU_Vacunas extends javax.swing.JDialog {
         limpiarApro = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaPersonal = new javax.swing.JTable();
+        tablaPersonas = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         listaSMS = new javax.swing.JList<>();
@@ -143,7 +146,13 @@ public class IU_Vacunas extends javax.swing.JDialog {
 
         jLabel8.setText("* Todos los campos son obligatorios");
 
-        jLabel9.setText("Un ejemplo de fecha 22-12-2021");
+        jLabel9.setText("Formato YYYY-MM-DD (ejemplo 5 de agosto de 2020: 2020-08-05)");
+
+        jLabel15.setText("Numero decimal con punto (ejemplo 14.50)");
+
+        jLabel16.setText("Cantidad en dias (entero positivo)");
+
+        jLabel17.setText("% (0-100, sin decimales)");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -179,8 +188,12 @@ public class IU_Vacunas extends javax.swing.JDialog {
                                 .addComponent(fechaCampania)
                                 .addComponent(nombreCampania)))))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,15 +218,18 @@ public class IU_Vacunas extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(costeCampania, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(costeCampania, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(tempoCampania, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tempoCampania, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(efectividadCampania, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(efectividadCampania, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(aceptarCampania)
@@ -301,7 +317,7 @@ public class IU_Vacunas extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("Vacunas", jPanel2);
 
-        tablaPersonal.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -312,7 +328,7 @@ public class IU_Vacunas extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tablaPersonal);
+        jScrollPane1.setViewportView(tablaPersonas);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -331,7 +347,7 @@ public class IU_Vacunas extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Personal", jPanel3);
+        jTabbedPane1.addTab("Personas", jPanel3);
 
         jScrollPane2.setViewportView(listaSMS);
 
@@ -530,20 +546,24 @@ public class IU_Vacunas extends javax.swing.JDialog {
     }
     
     public void rellenarTabla(){
-        tablaPersonal.getTableHeader().setReorderingAllowed(false);
+        tablaPersonas.getTableHeader().setReorderingAllowed(false);
         DefaultTableModel modelo = new DefaultTableModel(){
             @Override
             public boolean isCellEditable(int row, int col){
                return false; 
             }
         };
-        
-        //modelo.setColumnIdentifiers(columna);
-        //for(int i = 0; i < tipo.size(); i++){
-            //modelo.addRow((Vector) tipo.get(i)); 
-        //}
+        Object[] columnas = {"Identificador","Nombre","Apellidos","Teléfono","F. Nac","Enfermo","Confinado","NªAtencion","Sano","Cuarentena","Vulnerable","Vacunado","Contactos"};
+        modelo.setColumnIdentifiers(columnas);
+        GestorPersona gp = new GestorPersona();
+        Vector<Object> tipo = gp.getPersonas();
+        System.out.println("-------------faldkjfañdlkfjañdl-----");
+        System.out.println(tipo.toString());
+        for(int i = 0; i < tipo.size(); i++){
+            modelo.addRow((Vector) tipo.get(i)); 
+        }
         //Asigna el modelo a la tabla
-        tablaPersonal.setModel(modelo);
+        tablaPersonas.setModel(modelo);
     }
 
     public void rellenarLista(){
@@ -581,6 +601,9 @@ public class IU_Vacunas extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -601,7 +624,7 @@ public class IU_Vacunas extends javax.swing.JDialog {
     private javax.swing.JList<String> listaSMS;
     private javax.swing.JTextField nombreApro;
     private javax.swing.JTextField nombreCampania;
-    private javax.swing.JTable tablaPersonal;
+    private javax.swing.JTable tablaPersonas;
     private javax.swing.JTextField tempoCampania;
     private javax.swing.JComboBox<String> tipoVariable;
     // End of variables declaration//GEN-END:variables
