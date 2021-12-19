@@ -557,8 +557,7 @@ public class IU_Vacunas extends javax.swing.JDialog {
         modelo.setColumnIdentifiers(columnas);
         GestorPersona gp = new GestorPersona();
         Vector<Object> tipo = gp.getPersonas();
-        System.out.println("-------------faldkjfañdlkfjañdl-----");
-        System.out.println(tipo.toString());
+        
         for(int i = 0; i < tipo.size(); i++){
             modelo.addRow((Vector) tipo.get(i)); 
         }

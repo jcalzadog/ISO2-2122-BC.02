@@ -91,31 +91,9 @@ public class Agente {
    
       Vector<Object> v = new Vector<Object>();
       
-      switch(num){
-        case 1:
-            v.add(res.getObject(1));
-            break;
-        case 3:
-            v.add(res.getObject(1));
-            v.add(res.getObject(2));
-            v.add(res.getObject(3));
-            break;
-        case 4:
-            v.add(res.getObject(1));
-            v.add(res.getObject(2));
-            v.add(res.getObject(3));
-            v.add(res.getObject(4));
-            break;
-        case 7:
-            v.add(res.getObject(1));
-            v.add(res.getObject(2));
-            v.add(res.getObject(3));
-            v.add(res.getObject(4));
-            v.add(res.getObject(5));
-            v.add(res.getObject(6));
-            v.add(res.getObject(7));
-            break;
-      }
+        for (int i = 1; i <= num; i++) {
+            v.add(res.getObject(i));
+        }
       vectoradevolver.add(v);
     }
     stmt.close();
