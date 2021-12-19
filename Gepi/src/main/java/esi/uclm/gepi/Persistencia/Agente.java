@@ -92,6 +92,9 @@ public class Agente {
       Vector<Object> v = new Vector<Object>();
       
       switch(num){
+        case 1:
+            v.add(res.getObject(1));
+            break;
         case 3:
             v.add(res.getObject(1));
             v.add(res.getObject(2));
