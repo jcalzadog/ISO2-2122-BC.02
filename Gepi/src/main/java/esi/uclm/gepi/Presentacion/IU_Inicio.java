@@ -10,6 +10,7 @@ import esi.uclm.gepi.Dominio.GestorEnfermedades;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /**
@@ -44,7 +45,7 @@ public class IU_Inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lista-de-verificacion.png"))); // NOI18N
+        jButton1.setIcon(new ImageIcon("src/main/resources/Imagenes/lista-de-verificacion.png"));
         jButton1.setText("Gestion");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,7 +53,7 @@ public class IU_Inicio extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Hospital.png"))); // NOI18N
+        jLabel1.setIcon(new ImageIcon("src/main/resources/Imagenes/Hospital.png"));
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
         jLabel2.setText("¡Bienvenido a G E P I!");
