@@ -25,7 +25,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="36" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="173" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jButton1" pref="173" max="32767" attributes="0"/>
+                  <Component id="btnSeguimiento" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel2" min="-2" pref="278" max="-2" attributes="0"/>
@@ -43,7 +46,11 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" pref="227" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="btnSeguimiento" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="126" max="32767" attributes="0"/>
           </Group>
@@ -76,6 +83,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&#xa1;Bienvenido a G E P I!"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSeguimiento">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Seguimiento"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSeguimientoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
