@@ -8,6 +8,7 @@ import esi.uclm.gepi.Dominio.GestorPersona;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,17 +22,19 @@ public class IU_Contactos extends javax.swing.JDialog {
      */
     GestorPersona gestorPersona;
     int identificador;
-    public IU_Contactos(java.awt.Frame parent, boolean modal,int id) {
+
+    public IU_Contactos(java.awt.Frame parent, boolean modal, int id) {
         super(parent, modal);
-        gestorPersona=new GestorPersona();
+        gestorPersona = new GestorPersona();
         identificador = id;
         initComponents();
         rellenarTabla();
         this.setTitle("Establecer contacto");
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        
+
     }
+
     public void rellenarTabla() {
         tablaPersonas.getTableHeader().setReorderingAllowed(false);
         DefaultTableModel modelo = new DefaultTableModel() {
@@ -52,6 +55,7 @@ public class IU_Contactos extends javax.swing.JDialog {
         //Asigna el modelo a la tabla
         tablaPersonas.setModel(modelo);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -88,7 +92,7 @@ public class IU_Contactos extends javax.swing.JDialog {
             }
         });
 
-        lblTitle.setText("Selecciona los contactos estrechos: ");
+        lblTitle.setText("Selecciona las personas con las que ha tenido contactos estrechos: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,21 +126,26 @@ public class IU_Contactos extends javax.swing.JDialog {
 
     private void btnEstablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstablecerActionPerformed
         int numfilas = this.tablaPersonas.getSelectedRowCount();
-        int[] filas =  this.tablaPersonas.getSelectedRows();
-        int[] identificadores = new int[numfilas];
-        for (int i = 0; i < identificadores.length; i++) {
-            identificadores[i] = Integer.parseInt(this.tablaPersonas.getModel().getValueAt(filas[i], 0).toString());
-         
-        }
-        for (int i = 0; i < identificadores.length; i++) {
-            try {
-                gestorPersona.insertarContactos(this.identificador,identificadores[i]);
-            } catch (Exception ex) {
-                Logger.getLogger(IU_Contactos.class.getName()).log(Level.SEVERE, null, ex);
+        if (numfilas != 0) {
+            int[] filas = this.tablaPersonas.getSelectedRows();
+            int[] identificadores = new int[numfilas];
+            for (int i = 0; i < identificadores.length; i++) {
+                identificadores[i] = Integer.parseInt(this.tablaPersonas.getModel().getValueAt(filas[i], 0).toString());
+
             }
+            for (int i = 0; i < identificadores.length; i++) {
+                try {
+                    gestorPersona.insertarContactos(this.identificador, identificadores[i]);
+                    this.dispose();
+                } catch (Exception ex) {
+
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Debes seleccionar una fila primero.", "Error", JOptionPane.ERROR_MESSAGE);
+
         }
-        int row = this.tablaPersonas.getSelectedRow();
-            
+
     }//GEN-LAST:event_btnEstablecerActionPerformed
 
     /**
@@ -169,7 +178,7 @@ public class IU_Contactos extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                IU_Contactos dialog = new IU_Contactos(new javax.swing.JFrame(), true,0);
+                IU_Contactos dialog = new IU_Contactos(new javax.swing.JFrame(), true, 0);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

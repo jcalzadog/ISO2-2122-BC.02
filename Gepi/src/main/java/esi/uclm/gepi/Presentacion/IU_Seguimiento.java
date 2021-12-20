@@ -45,6 +45,7 @@ public class IU_Seguimiento extends javax.swing.JFrame {
         botonAddPersona = new javax.swing.JButton();
         botonAddContactos = new javax.swing.JButton();
         btnRefrescar = new javax.swing.JButton();
+        btnVisualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -83,6 +84,13 @@ public class IU_Seguimiento extends javax.swing.JFrame {
             }
         });
 
+        btnVisualizar.setText("Visualizar Contactos");
+        btnVisualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,6 +104,8 @@ public class IU_Seguimiento extends javax.swing.JFrame {
                         .addComponent(botonAddPersona)
                         .addGap(18, 18, 18)
                         .addComponent(botonAddContactos)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnVisualizar)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 872, Short.MAX_VALUE))
                 .addContainerGap())
@@ -109,7 +119,8 @@ public class IU_Seguimiento extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRefrescar)
                     .addComponent(botonAddPersona)
-                    .addComponent(botonAddContactos))
+                    .addComponent(botonAddContactos)
+                    .addComponent(btnVisualizar))
                 .addGap(21, 21, 21))
         );
 
@@ -127,18 +138,32 @@ public class IU_Seguimiento extends javax.swing.JFrame {
 
     private void botonAddContactosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAddContactosActionPerformed
         int numfilas = this.tablaPersonas.getSelectedRowCount();
-        int value=0;
+        int value = 0;
         if (numfilas != 0) {
             int row = this.tablaPersonas.getSelectedRow();
             value = Integer.parseInt(this.tablaPersonas.getModel().getValueAt(row, 0).toString());
-             IU_Contactos contactos = new IU_Contactos(this,true,value);
+            IU_Contactos contactos = new IU_Contactos(this, true, value);
             contactos.setVisible(true);
-        }else{
-             JOptionPane.showMessageDialog(this, "Debes seleccionar una columna primero.", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Debes seleccionar una fila primero.", "Error", JOptionPane.ERROR_MESSAGE);
 
         }
-       
+
     }//GEN-LAST:event_botonAddContactosActionPerformed
+
+    private void btnVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarActionPerformed
+        int numfilas = this.tablaPersonas.getSelectedRowCount();
+        int value = 0;
+        if (numfilas != 0) {
+            int row = this.tablaPersonas.getSelectedRow();
+            value = Integer.parseInt(this.tablaPersonas.getModel().getValueAt(row, 0).toString());
+            IU_VisualizarContactos vc = new IU_VisualizarContactos(this, true, value);
+            vc.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Debes seleccionar una fila primero.", "Error", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }//GEN-LAST:event_btnVisualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,6 +230,7 @@ public class IU_Seguimiento extends javax.swing.JFrame {
     private javax.swing.JButton botonAddContactos;
     private javax.swing.JButton botonAddPersona;
     private javax.swing.JButton btnRefrescar;
+    private javax.swing.JButton btnVisualizar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaPersonas;
     // End of variables declaration//GEN-END:variables
