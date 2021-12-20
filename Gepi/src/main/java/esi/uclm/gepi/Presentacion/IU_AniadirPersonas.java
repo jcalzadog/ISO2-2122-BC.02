@@ -159,7 +159,7 @@ public class IU_AniadirPersonas extends javax.swing.JDialog {
         btnGroupVacunado.add(rbNoVacunado);
         rbNoVacunado.setText("No");
 
-        jLabel12.setText("Identificador:");
+        jLabel12.setText("DNI:");
 
         txtIdentificador.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
