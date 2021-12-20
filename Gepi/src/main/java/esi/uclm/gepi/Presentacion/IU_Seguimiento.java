@@ -6,20 +6,23 @@ package esi.uclm.gepi.Presentacion;
 
 import esi.uclm.gepi.Dominio.GestorPersona;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Enrique 
- * 
+ * @author Enrique
+ *
  */
 public class IU_Seguimiento extends javax.swing.JFrame {
+
     GestorPersona gestorPersona;
+
     /**
      * Creates new form IU_Seguimiento
      */
     public IU_Seguimiento() {
-        
+
         gestorPersona = new GestorPersona();
         initComponents();
         rellenarTabla();
@@ -39,9 +42,9 @@ public class IU_Seguimiento extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPersonas = new javax.swing.JTable();
-        botonRefrescar = new javax.swing.JButton();
         botonAddPersona = new javax.swing.JButton();
         botonAddContactos = new javax.swing.JButton();
+        btnRefrescar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -56,14 +59,8 @@ public class IU_Seguimiento extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaPersonas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(tablaPersonas);
-
-        botonRefrescar.setText("Refrescar Tabla");
-        botonRefrescar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonRefrescarActionPerformed(evt);
-            }
-        });
 
         botonAddPersona.setText("Añadir Persona");
         botonAddPersona.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +70,18 @@ public class IU_Seguimiento extends javax.swing.JFrame {
         });
 
         botonAddContactos.setText("Establecer Contactos");
+        botonAddContactos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAddContactosActionPerformed(evt);
+            }
+        });
+
+        btnRefrescar.setText("Actualizar Tabla");
+        btnRefrescar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefrescarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,39 +90,55 @@ public class IU_Seguimiento extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(botonRefrescar)
-                        .addGap(270, 270, 270)
+                        .addComponent(btnRefrescar)
+                        .addGap(18, 18, 18)
                         .addComponent(botonAddPersona)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
-                        .addComponent(botonAddContactos)))
+                        .addGap(18, 18, 18)
+                        .addComponent(botonAddContactos)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 872, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonRefrescar)
+                    .addComponent(btnRefrescar)
                     .addComponent(botonAddPersona)
                     .addComponent(botonAddContactos))
-                .addContainerGap())
+                .addGap(21, 21, 21))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRefrescarActionPerformed
-       rellenarTabla();
-    }//GEN-LAST:event_botonRefrescarActionPerformed
-
     private void botonAddPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAddPersonaActionPerformed
-        IU_AniadirPersonas ap = new IU_AniadirPersonas(this,true);
+        IU_AniadirPersonas ap = new IU_AniadirPersonas(this, true);
         ap.setVisible(true);
     }//GEN-LAST:event_botonAddPersonaActionPerformed
+
+    private void btnRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefrescarActionPerformed
+        rellenarTabla();
+    }//GEN-LAST:event_btnRefrescarActionPerformed
+
+    private void botonAddContactosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAddContactosActionPerformed
+        int numfilas = this.tablaPersonas.getSelectedRowCount();
+        int value=0;
+        if (numfilas != 0) {
+            int row = this.tablaPersonas.getSelectedRow();
+            value = Integer.parseInt(this.tablaPersonas.getModel().getValueAt(row, 0).toString());
+             IU_Contactos contactos = new IU_Contactos(this,true,value);
+            contactos.setVisible(true);
+        }else{
+             JOptionPane.showMessageDialog(this, "Debes seleccionar una columna primero.", "Error", JOptionPane.ERROR_MESSAGE);
+
+        }
+       
+    }//GEN-LAST:event_botonAddContactosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,37 +177,34 @@ public class IU_Seguimiento extends javax.swing.JFrame {
             }
         });
     }
-    
-    public void rellenarTabla(){
+
+    public void rellenarTabla() {
         tablaPersonas.getTableHeader().setReorderingAllowed(false);
-        DefaultTableModel modelo = new DefaultTableModel(){
+        DefaultTableModel modelo = new DefaultTableModel() {
             @Override
-            public boolean isCellEditable(int row, int col){
-               return false; 
+            public boolean isCellEditable(int row, int col) {
+                return false;
             }
         };
-        String[] col = {"Identificador","Nombre","Apellidos","Telefono","Fecha Nacimiento","Enfermo","Confinado","Atencion",
-           "Sano","Cuarentena","Vulnerable","Vacunado","Contactos"};
-       
+        String[] col = {"DNI", "Nombre", "Apellidos", "Telefono", "Fecha Nacimiento", "Enfermo", "Confinado", "Atencion",
+            "Sano", "Cuarentena", "Vulnerable", "Vacunado"};
+
         modelo.setColumnIdentifiers(col);
         Vector v = gestorPersona.getPersonas();
-        
+
         for (int i = 0; i < v.size(); i++) {
             modelo.addRow((Vector) v.get(i));
         }
-      
-      
+
         //Asigna el modelo a la tabla
         tablaPersonas.setModel(modelo);
     }
-    
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAddContactos;
     private javax.swing.JButton botonAddPersona;
-    private javax.swing.JButton botonRefrescar;
+    private javax.swing.JButton btnRefrescar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaPersonas;
     // End of variables declaration//GEN-END:variables

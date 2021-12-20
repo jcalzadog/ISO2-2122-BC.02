@@ -34,6 +34,17 @@ public class GestorPersona {
         }     
         return personas;  
     }
+      public Vector getPersonas(int id){   
+        Vector<Object> personas = null;
+        try {
+            personas = this.agente.select("SELECT * FROM Persona WHERE identificador != "+id+" AND identificador NOT IN("
+                    + "SELECT dni2 from Contactos WHERE dni1 = "+id+")",13);
+            
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }     
+        return personas;  
+    }
      
     public void insertarPersona( int id, String nombre,String apellidos,int telefono,String fechanac,boolean enfermo, 
             boolean confinado, boolean atencion, boolean sano, boolean cuarentena,boolean vulnerable,boolean vacunado,
@@ -42,5 +53,10 @@ public class GestorPersona {
        String sql = "INSERT INTO Persona VALUES ("+id+",'"+nombre+"','"+apellidos+"',"+telefono+",'"+fechanac+"',"+enfermo+","+
                confinado+","+atencion+","+sano+","+cuarentena+","+vulnerable+","+vacunado+",'"+id_contactos+"')";
        this.agente.insert(sql);
+    }
+
+    public void insertarContactos(int id, int identificadores) throws Exception {
+            String sql = "INSERT INTO Contactos VALUES ("+id+","+identificadores+")";
+            this.agente.insert(sql);
     }
 }

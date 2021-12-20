@@ -4,7 +4,9 @@
  */
 package esi.uclm.gepi.Presentacion;
 
+import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
 import esi.uclm.gepi.Dominio.GestorPersona;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -14,7 +16,9 @@ import javax.swing.JOptionPane;
  * @author Enrique
  */
 public class IU_AniadirPersonas extends javax.swing.JDialog {
+
     GestorPersona gestorPersona;
+
     /**
      * Creates new form IU_AniadirPersonas
      */
@@ -301,7 +305,7 @@ public class IU_AniadirPersonas extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-      
+
         int id;
         String nombre;
         String apellidos;
@@ -314,19 +318,19 @@ public class IU_AniadirPersonas extends javax.swing.JDialog {
         boolean cuarentena;
         boolean vulnerable;
         boolean vacunado;
-        
+
         //COMPROBACIONES DE QUE NO ESTEN VACIOS
-        if(this.txtIdentificador.getText().isEmpty() || this.txtNombre.getText().isEmpty() || 
-                this.txtApellidos.getText().isEmpty()|| this.txtTelefono.getText().isEmpty() ||
-                this.txtFechanac.getText().isEmpty() || this.btnGroupAtencion.getSelection()==null || 
-                this.btnGroupCuarentena.getSelection()==null || this.btnGroupSano.getSelection()==null ||
-                this.btnGroupVacunado.getSelection()==null || this.btnGroupVulnerable.getSelection()==null ||
-                this.btngroupConfinados.getSelection()==null){
-            
-                    JOptionPane.showMessageDialog(this,"Estás olvidando algún campo","Error",JOptionPane.ERROR_MESSAGE);
-        }else{
+        if (this.txtIdentificador.getText().isEmpty() || this.txtNombre.getText().isEmpty()
+                || this.txtApellidos.getText().isEmpty() || this.txtTelefono.getText().isEmpty()
+                || this.txtFechanac.getText().isEmpty() || this.btnGroupAtencion.getSelection() == null
+                || this.btnGroupCuarentena.getSelection() == null || this.btnGroupSano.getSelection() == null
+                || this.btnGroupVacunado.getSelection() == null || this.btnGroupVulnerable.getSelection() == null
+                || this.btngroupConfinados.getSelection() == null) {
+
+            JOptionPane.showMessageDialog(this, "Estás olvidando algún campo", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
             id = Integer.parseInt(this.txtIdentificador.getText());
-            nombre = this.txtNombre.getText();   
+            nombre = this.txtNombre.getText();
             apellidos = this.txtApellidos.getText();
             telefono = Integer.parseInt(this.txtTelefono.getText());
             fechanac = this.txtFechanac.getText();
@@ -337,38 +341,46 @@ public class IU_AniadirPersonas extends javax.swing.JDialog {
             cuarentena = this.rbSiCuarentena.isSelected();
             vulnerable = this.rbSiVulnerable.isSelected();
             vacunado = this.rbSiVacunado.isSelected();
-            this.dispose(); 
+
             try {
-                this.gestorPersona.insertarPersona(id, nombre, apellidos, telefono, fechanac, enfermo, confinado, atencion, sano, cuarentena, vulnerable, vacunado,"no tiene");
+                this.gestorPersona.insertarPersona(id, nombre, apellidos, telefono, fechanac, enfermo, confinado, atencion, sano, cuarentena, vulnerable, vacunado, "no tiene");
+                
+                this.dispose();
+
+            } catch (MysqlDataTruncation dt) {
+                JOptionPane.showMessageDialog(this, "Has introducido la fecha de manera incorrecta.\nIntroduce el formato correcto: YYYY-MM-DD.", "Error", JOptionPane.ERROR_MESSAGE);
+
+            } catch (SQLIntegrityConstraintViolationException icv) {
+                JOptionPane.showMessageDialog(this, "Ya hay una persona registrada con ese identificador.", "Error", JOptionPane.ERROR_MESSAGE);
+
             } catch (Exception ex) {
                 Logger.getLogger(IU_AniadirPersonas.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(this,"Has introducido algun campo de manera incorrecta","Error",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Has introducido algun campo de manera incorrecta.", "Error", JOptionPane.ERROR_MESSAGE);
             }
+
         }
-        
-        
-        
-       
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtIdentificadorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdentificadorKeyPressed
-    
+
     }//GEN-LAST:event_txtIdentificadorKeyPressed
 
     private void txtIdentificadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdentificadorKeyReleased
-        if(!Character.isDigit(evt.getKeyChar())){
-            this.txtIdentificador.setText("");
+        if (!Character.isDigit(evt.getKeyChar())) {
+            this.txtIdentificador.setText(""); 
+          
         }
     }//GEN-LAST:event_txtIdentificadorKeyReleased
 
     private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
-     
+            
     }//GEN-LAST:event_txtTelefonoKeyTyped
 
     private void txtTelefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyReleased
-      if(!Character.isDigit(evt.getKeyChar())){
+        if (!Character.isDigit(evt.getKeyChar())) {
             this.txtTelefono.setText("");
-        }        
+        }
     }//GEN-LAST:event_txtTelefonoKeyReleased
 
     /**
