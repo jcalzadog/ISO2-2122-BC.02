@@ -39,18 +39,20 @@ public class IU_Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btnGestion = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnSeguimiento = new javax.swing.JButton();
+        btnVacunas = new javax.swing.JButton();
+        btnEstadisticas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setIcon(new ImageIcon("src/main/resources/Imagenes/lista-de-verificacion.png"));
-        jButton1.setText("Gestion");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnGestion.setIcon(new ImageIcon("src/main/resources/Imagenes/gestion.png"));
+        btnGestion.setText("Gestion");
+        btnGestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnGestionActionPerformed(evt);
             }
         });
 
@@ -59,10 +61,27 @@ public class IU_Inicio extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
         jLabel2.setText("¡Bienvenido a G E P I!");
 
+        btnSeguimiento.setIcon(new ImageIcon("src/main/resources/Imagenes/seguimiento.png"));
         btnSeguimiento.setText("Seguimiento");
         btnSeguimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSeguimientoActionPerformed(evt);
+            }
+        });
+
+        btnVacunas.setIcon(new ImageIcon("src/main/resources/Imagenes/vacunas.png"));
+        btnVacunas.setText("Vacunas");
+        btnVacunas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVacunasActionPerformed(evt);
+            }
+        });
+
+        btnEstadisticas.setIcon(new ImageIcon("src/main/resources/Imagenes/analitica.png"));
+        btnEstadisticas.setText("Estadisticas");
+        btnEstadisticas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEstadisticasActionPerformed(evt);
             }
         });
 
@@ -71,15 +90,22 @@ public class IU_Inicio extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                    .addComponent(btnGestion, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
                     .addComponent(btnSeguimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(213, 213, 213))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(213, 213, 213))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEstadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnVacunas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,24 +116,38 @@ public class IU_Inicio extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnGestion)
                         .addGap(38, 38, 38)
-                        .addComponent(btnSeguimiento)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                        .addComponent(btnSeguimiento))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnVacunas)
+                        .addGap(39, 39, 39)
+                        .addComponent(btnEstadisticas)))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionActionPerformed
         IU_Gestion gestion = new IU_Gestion(this,true);
         gestion.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnGestionActionPerformed
 
     private void btnSeguimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeguimientoActionPerformed
         IU_Seguimiento seguimiento = new IU_Seguimiento();
         seguimiento.setVisible(true);
     }//GEN-LAST:event_btnSeguimientoActionPerformed
+
+    private void btnVacunasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVacunasActionPerformed
+        IU_Vacunas vacunas = new IU_Vacunas(this,true);
+        vacunas.setVisible(true);
+    }//GEN-LAST:event_btnVacunasActionPerformed
+
+    private void btnEstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadisticasActionPerformed
+        IU_AutentificacionDirectivos directivos = new IU_AutentificacionDirectivos(this,true);
+        directivos.setVisible(true);
+    }//GEN-LAST:event_btnEstadisticasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,8 +186,10 @@ public class IU_Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEstadisticas;
+    private javax.swing.JButton btnGestion;
     private javax.swing.JButton btnSeguimiento;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnVacunas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

@@ -6,6 +6,7 @@ package esi.uclm.gepi.Presentacion;
 
 import esi.uclm.gepi.Dominio.GestorPersona;
 import java.util.Vector;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -26,6 +27,8 @@ public class IU_VisualizarContactos extends javax.swing.JDialog {
         
         gestorPersona = new GestorPersona();
         rellenarTabla();
+        ImageIcon imgIconApp = new ImageIcon("src/main/resources/Imagenes/icono.png");
+        this.setIconImage(imgIconApp.getImage());
         this.setTitle("Contactos de la persona");
         this.setResizable(false);
         this.setLocationRelativeTo(null);

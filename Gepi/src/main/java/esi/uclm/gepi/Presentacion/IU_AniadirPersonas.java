@@ -6,9 +6,11 @@ package esi.uclm.gepi.Presentacion;
 
 import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
 import esi.uclm.gepi.Dominio.GestorPersona;
+import java.awt.Frame;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +20,7 @@ import javax.swing.JOptionPane;
 public class IU_AniadirPersonas extends javax.swing.JDialog {
 
     GestorPersona gestorPersona;
-
+    
     /**
      * Creates new form IU_AniadirPersonas
      */
@@ -26,6 +28,8 @@ public class IU_AniadirPersonas extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         gestorPersona = new GestorPersona();
+        ImageIcon imgIconApp = new ImageIcon("src/main/resources/Imagenes/icono.png");
+        this.setIconImage(imgIconApp.getImage());
         this.setTitle("Añadir Persona");
         this.setResizable(false);
         this.setLocationRelativeTo(null);
@@ -344,7 +348,7 @@ public class IU_AniadirPersonas extends javax.swing.JDialog {
 
             try {
                 this.gestorPersona.insertarPersona(id, nombre, apellidos, telefono, fechanac, enfermo, confinado, atencion, sano, cuarentena, vulnerable, vacunado, "no tiene");
-                
+           
                 this.dispose();
 
             } catch (MysqlDataTruncation dt) {

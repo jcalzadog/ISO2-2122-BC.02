@@ -8,6 +8,7 @@ import esi.uclm.gepi.Dominio.GestorPersona;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,6 +30,8 @@ public class IU_Contactos extends javax.swing.JDialog {
         identificador = id;
         initComponents();
         rellenarTabla();
+        ImageIcon imgIconApp = new ImageIcon("src/main/resources/Imagenes/icono.png");
+        this.setIconImage(imgIconApp.getImage());
         this.setTitle("Establecer contacto");
         this.setResizable(false);
         this.setLocationRelativeTo(null);
