@@ -1,0 +1,73 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Gepi,esi.uclm.gepi.Dominio,Campania,103,0,0,0,29,0,15,0,15,0
+Gepi,esi.uclm.gepi.Dominio,Estudio,58,0,0,0,17,0,9,0,9,0
+Gepi,esi.uclm.gepi.Dominio,Enfermedad,37,66,0,0,1,28,1,14,1,14
+Gepi,esi.uclm.gepi.Dominio,GestorEstadistica,587,0,2,0,126,0,10,0,9,0
+Gepi,esi.uclm.gepi.Dominio,GestorEnfermedades,21,0,0,0,9,0,2,0,2,0
+Gepi,esi.uclm.gepi.Dominio,Aprovisionamiento,43,0,0,0,13,0,7,0,7,0
+Gepi,esi.uclm.gepi.Dominio,Persona,166,0,0,0,41,0,28,0,28,0
+Gepi,esi.uclm.gepi.Dominio,GestorPersona,26,150,0,0,10,20,0,6,0,6
+Gepi,esi.uclm.gepi.Dominio,GestorCampania,90,0,0,0,19,0,3,0,3,0
+Gepi,esi.uclm.gepi.Dominio,GestorAprovisionamiento,41,0,0,0,9,0,2,0,2,0
+Gepi,esi.uclm.gepi.Dominio,GestorEstudio,21,0,0,0,9,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_AutentificacionDirectivos.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_AutentificacionDirectivos.new Runnable() {...},21,0,0,0,5,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_AniadirPersonas.new Runnable() {...},21,0,0,0,5,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_AniadirPersonas.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_AniadirPersonas.new KeyAdapter() {...},16,0,0,0,5,0,3,0,3,0
+Gepi,esi.uclm.gepi.Presentacion,IU_VisualizarContactos.1.new WindowAdapter() {...},9,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_AniadirPersonas.new KeyAdapter() {...},16,0,0,0,5,0,3,0,3,0
+Gepi,esi.uclm.gepi.Presentacion,IU_LeyendaEstadisticas.1.new WindowAdapter() {...},9,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Estadisticas.5.new WindowAdapter() {...},9,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Gestion.2.new WindowAdapter() {...},9,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Vacunas.10.new WindowAdapter() {...},9,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_AutentificacionDirectivos.2.new WindowAdapter() {...},9,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_AniadirPersonas,1114,0,30,0,273,0,23,0,8,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Contactos,455,0,12,0,85,0,11,0,5,0
+Gepi,esi.uclm.gepi.Presentacion,IU_AniadirPersonas.4.new WindowAdapter() {...},9,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Estadisticas,3211,0,22,0,739,0,18,0,7,0
+Gepi,esi.uclm.gepi.Presentacion,IU_LeyendaEstadisticas.new Runnable() {...},21,0,0,0,5,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Inicio,408,0,4,0,97,0,9,0,7,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Estadisticas.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Inicio.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Estadisticas.new Runnable() {...},21,0,0,0,5,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Inicio.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Inicio.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Estadisticas.new DefaultTableModel() {...},8,0,0,0,2,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Estadisticas.new DefaultTableModel() {...},8,0,0,0,2,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Estadisticas.new DefaultTableModel() {...},8,0,0,0,2,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Vacunas.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Seguimiento,571,0,10,0,109,0,13,0,8,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Vacunas.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Vacunas.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Vacunas.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Vacunas.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Vacunas.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Vacunas.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Contactos.3.new WindowAdapter() {...},9,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Inicio.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Seguimiento.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Vacunas.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Inicio.new Runnable() {...},9,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Vacunas.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Seguimiento.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Seguimiento.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Seguimiento.new Runnable() {...},9,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Seguimiento.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Gestion.new DefaultTableModel() {...},8,0,0,0,2,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Gestion.new Runnable() {...},21,0,0,0,5,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Seguimiento.new DefaultTableModel() {...},8,0,0,0,2,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_LeyendaEstadisticas,463,0,4,0,117,0,5,0,3,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Gestion,538,0,10,0,89,0,11,0,5,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Gestion.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_AutentificacionDirectivos,288,0,6,0,74,0,7,0,4,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Contactos.new Runnable() {...},22,0,0,0,5,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Contactos.new DefaultTableModel() {...},8,0,0,0,2,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Contactos.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Vacunas.new DefaultTableModel() {...},8,0,0,0,2,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_VisualizarContactos,363,0,6,0,56,0,7,0,4,0
+Gepi,esi.uclm.gepi.Presentacion,IU_VisualizarContactos.new Runnable() {...},22,0,0,0,5,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Vacunas.new Runnable() {...},21,0,0,0,5,0,2,0,2,0
+Gepi,esi.uclm.gepi.Presentacion,IU_Vacunas,1580,0,32,0,357,0,30,0,14,0
+Gepi,esi.uclm.gepi.Presentacion,IU_VisualizarContactos.new DefaultTableModel() {...},8,0,0,0,2,0,2,0,2,0
+Gepi,esi.uclm.gepi.Persistencia,Agente,28,89,0,6,11,33,2,10,2,7

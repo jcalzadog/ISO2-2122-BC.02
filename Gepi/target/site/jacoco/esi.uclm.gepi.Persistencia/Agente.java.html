@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Agente.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Gepi</a> &gt; <a href="index.source.html" class="el_package">esi.uclm.gepi.Persistencia</a> &gt; <span class="el_source">Agente.java</span></div><h1>Agente.java</h1><pre class="source lang-java linenums">package esi.uclm.gepi.Persistencia;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Vector;
+
+public class Agente {
+  // instancia del agente
+<span class="fc" id="L13">  protected static Agente mInstancia = null;</span>
+  // Conexion con la base de datos
+  protected static Connection mBD;
+  // Identificador ODBC de la base de datos
+<span class="fc" id="L17">  private static String url = &quot;jdbc:mysql://vl22352.dinaserver.com/gepi?user=gepi&amp;password=$H6|mk4w53oD&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&quot;;</span>
+  // Driven para conectar con bases de datos MySQL
+<span class="fc" id="L19">  private static String driver = &quot;com.mysql.cj.jdbc.Driver&quot;;</span>
+
+  // Constructor
+<span class="fc" id="L22">  private Agente() throws Exception {</span>
+<span class="fc" id="L23">    conectar();</span>
+
+<span class="fc" id="L25">  }</span>
+
+  // Implementacion del patron singleton
+  // Este patron de diseño permite implementar clases de las cuales
+  // solo existir una instancia
+  // http://es.wikipedia.org/wiki/Singleton
+  public static Agente getAgente() throws Exception {
+<span class="fc bfc" id="L32" title="All 2 branches covered.">    if (mInstancia == null) {</span>
+<span class="fc" id="L33">      mInstancia = new Agente();</span>
+    }
+<span class="fc" id="L35">    return mInstancia;</span>
+  }
+
+  // Metodo para realizar la conexion a la base de datos
+  private void conectar() throws Exception {
+<span class="fc" id="L40">    Class.forName(driver);</span>
+<span class="fc" id="L41">    mBD = DriverManager.getConnection(url);</span>
+<span class="fc" id="L42">  }</span>
+
+  // Metodo para desconectar de la base de datos
+  public void desconectar() throws Exception {
+<span class="fc" id="L46">    mBD.close();</span>
+<span class="fc" id="L47">  }</span>
+
+  // Metodo para realizar una insercion en la base de datos
+  public int insert(String SQL) throws SQLException, Exception {
+<span class="fc" id="L51">    conectar();</span>
+<span class="fc" id="L52">    PreparedStatement stmt = mBD.prepareStatement(SQL);</span>
+<span class="fc" id="L53">    int res = stmt.executeUpdate();</span>
+<span class="fc" id="L54">    stmt.close();</span>
+<span class="fc" id="L55">    desconectar();</span>
+<span class="fc" id="L56">    return res;</span>
+  }
+
+  // Metodo para realizar una eliminacion en la base de datos
+  public int delete(String SQL) throws SQLException, Exception {
+<span class="nc" id="L61">    PreparedStatement stmt = mBD.prepareStatement(SQL);</span>
+<span class="nc" id="L62">    int res = stmt.executeUpdate();</span>
+<span class="nc" id="L63">    stmt.close();</span>
+<span class="nc" id="L64">    desconectar();</span>
+<span class="nc" id="L65">    return res;</span>
+  }
+
+  // Metodo para realizar una eliminacion en la base de datos
+  public int update(String SQL) throws SQLException, Exception {
+<span class="nc" id="L70">    conectar();</span>
+<span class="nc" id="L71">    PreparedStatement stmt = mBD.prepareStatement(SQL);</span>
+<span class="nc" id="L72">    int res = stmt.executeUpdate();</span>
+<span class="nc" id="L73">    stmt.close();</span>
+<span class="nc" id="L74">    desconectar();</span>
+<span class="nc" id="L75">    return res;</span>
+  }
+
+  public Vector&lt;Object&gt; select(String SQL, int num) throws SQLException, Exception {
+    /*
+     * Metodo para realizar una busqueda o seleccion de informacion enla base de
+     * datos El mŽtodo select develve un vector de vectores, donde cada uno de los
+     * vectores que contiene el vector principal representa los registros que se
+     * recuperan de la base de datos.
+     */
+
+<span class="fc" id="L86">    Vector&lt;Object&gt; vectoradevolver = new Vector&lt;Object&gt;();</span>
+<span class="fc" id="L87">    conectar();</span>
+<span class="fc" id="L88">    Statement stmt = mBD.createStatement();</span>
+<span class="fc" id="L89">    ResultSet res = stmt.executeQuery(SQL);</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">    while (res.next()) {</span>
+   
+<span class="fc" id="L92">      Vector&lt;Object&gt; v = new Vector&lt;Object&gt;();</span>
+      
+<span class="fc bfc" id="L94" title="All 2 branches covered.">        for (int i = 1; i &lt;= num; i++) {</span>
+<span class="fc" id="L95">            v.add(res.getObject(i));</span>
+        }
+<span class="fc" id="L97">      vectoradevolver.add(v);</span>
+<span class="fc" id="L98">    }</span>
+<span class="fc" id="L99">    stmt.close();</span>
+<span class="fc" id="L100">    desconectar();</span>
+<span class="fc" id="L101">    return vectoradevolver;</span>
+
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

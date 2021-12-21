@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Campania.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Gepi</a> &gt; <a href="index.source.html" class="el_package">esi.uclm.gepi.Dominio</a> &gt; <span class="el_source">Campania.java</span></div><h1>Campania.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package esi.uclm.gepi.Dominio;
+
+
+public class Campania {
+    
+    String tipo;
+    String nombre;
+    String fecha;
+    double coste;
+    int temporalidad;
+    double efectividad;
+
+<span class="nc" id="L17">    public Campania(String tipo, String nombre, String fecha, double coste, int temporalidad, double efectividad) {</span>
+<span class="nc" id="L18">        this.tipo = tipo;</span>
+<span class="nc" id="L19">        this.nombre = nombre;</span>
+<span class="nc" id="L20">        this.fecha = fecha;</span>
+<span class="nc" id="L21">        this.coste = coste;</span>
+<span class="nc" id="L22">        this.temporalidad = temporalidad;</span>
+<span class="nc" id="L23">        this.efectividad = efectividad;</span>
+<span class="nc" id="L24">    }</span>
+
+<span class="nc" id="L26">    public Campania() {</span>
+<span class="nc" id="L27">    }</span>
+
+    public String getTipo() {
+<span class="nc" id="L30">        return tipo;</span>
+    }
+
+    public void setTipo(String tipo) {
+<span class="nc" id="L34">        this.tipo = tipo;</span>
+<span class="nc" id="L35">    }</span>
+
+    public String getNombre() {
+<span class="nc" id="L38">        return nombre;</span>
+    }
+
+    public void setNombre(String nombre) {
+<span class="nc" id="L42">        this.nombre = nombre;</span>
+<span class="nc" id="L43">    }</span>
+
+    public String getFecha() {
+<span class="nc" id="L46">        return fecha;</span>
+    }
+
+    public void setFecha(String fecha) {
+<span class="nc" id="L50">        this.fecha = fecha;</span>
+<span class="nc" id="L51">    }</span>
+
+    public double getCoste() {
+<span class="nc" id="L54">        return coste;</span>
+    }
+
+    public void setCoste(double coste) {
+<span class="nc" id="L58">        this.coste = coste;</span>
+<span class="nc" id="L59">    }</span>
+
+    public int getTemporalidad() {
+<span class="nc" id="L62">        return temporalidad;</span>
+    }
+
+    public void setTemporalidad(int temporalidad) {
+<span class="nc" id="L66">        this.temporalidad = temporalidad;</span>
+<span class="nc" id="L67">    }</span>
+
+    public double getEfectividad() {
+<span class="nc" id="L70">        return efectividad;</span>
+    }
+
+    public void setEfectividad(double efectividad) {
+<span class="nc" id="L74">        this.efectividad = efectividad;</span>
+<span class="nc" id="L75">    }</span>
+
+    public String toString() {
+<span class="nc" id="L78">        return &quot;Campanias{&quot; + &quot;tipo=&quot; + tipo + &quot;, nombre=&quot; + nombre + &quot;, fecha=&quot; + fecha + &quot;, coste=&quot; + coste + &quot;, temporalidad=&quot; + temporalidad + &quot;, efectividad=&quot; + efectividad + '}';</span>
+    }
+    
+    
+    
+    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GestorEstadistica.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Gepi</a> &gt; <a href="index.source.html" class="el_package">esi.uclm.gepi.Dominio</a> &gt; <span class="el_source">GestorEstadistica.java</span></div><h1>GestorEstadistica.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package esi.uclm.gepi.Dominio;
+
+import esi.uclm.gepi.Persistencia.Agente;
+import java.util.LinkedList;
+import java.util.Vector;
+
+/**
+ *
+ * @author Diego Alba Ruiz
+ */
+public class GestorEstadistica {
+
+    Agente agente;
+
+<span class="nc" id="L19">    public GestorEstadistica() throws Exception {</span>
+<span class="nc" id="L20">        this.agente = Agente.getAgente();</span>
+<span class="nc" id="L21">    }</span>
+
+    public Object getNumeroEnfermedades() {
+
+<span class="nc" id="L25">        Vector&lt;Object&gt; numEnfermedades = null;</span>
+        java.util.Vector temp;
+        Object numE;
+
+        try {
+<span class="nc" id="L30">            numEnfermedades = this.agente.select(&quot;SELECT COUNT(ID) FROM Enfermedad&quot;, 1);</span>
+
+<span class="nc" id="L32">        } catch (Exception ex) {</span>
+<span class="nc" id="L33">            System.out.println(ex);</span>
+<span class="nc" id="L34">        }</span>
+
+<span class="nc" id="L36">        temp = (java.util.Vector) numEnfermedades.remove(0);</span>
+<span class="nc" id="L37">        numE = temp.remove(0);</span>
+<span class="nc" id="L38">        return numE;</span>
+
+    }
+
+    public LinkedList&lt;Object&gt; getNumeroPersonasEstados() {
+
+<span class="nc" id="L44">        Vector&lt;Object&gt; num = null;</span>
+
+        java.util.Vector tempVector;
+        Object tempObject;
+<span class="nc" id="L48">        LinkedList&lt;Object&gt; numEstadosPersona = new LinkedList();</span>
+
+        try {
+<span class="nc" id="L51">            num = this.agente.select(&quot;SELECT COUNT(enfermo) FROM Persona WHERE enfermo=1&quot;, 1);</span>
+<span class="nc" id="L52">            tempVector = (java.util.Vector) num.remove(0);</span>
+<span class="nc" id="L53">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L54">            numEstadosPersona.add(tempObject);</span>
+
+<span class="nc" id="L56">            num = this.agente.select(&quot;SELECT COUNT(confinado) FROM Persona WHERE confinado=1&quot;, 1);</span>
+<span class="nc" id="L57">            tempVector = (java.util.Vector) num.remove(0);</span>
+<span class="nc" id="L58">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L59">            numEstadosPersona.add(tempObject);</span>
+
+<span class="nc" id="L61">            num = this.agente.select(&quot;SELECT COUNT(atencion) FROM Persona WHERE atencion=1&quot;, 1);</span>
+<span class="nc" id="L62">            tempVector = (java.util.Vector) num.remove(0);</span>
+<span class="nc" id="L63">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L64">            numEstadosPersona.add(tempObject);</span>
+
+<span class="nc" id="L66">            num = this.agente.select(&quot;SELECT COUNT(sano) FROM Persona WHERE sano=1&quot;, 1);</span>
+<span class="nc" id="L67">            tempVector = (java.util.Vector) num.remove(0);</span>
+<span class="nc" id="L68">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L69">            numEstadosPersona.add(tempObject);</span>
+
+<span class="nc" id="L71">            num = this.agente.select(&quot;SELECT COUNT(cuarentena) FROM Persona WHERE cuarentena=1&quot;, 1);</span>
+<span class="nc" id="L72">            tempVector = (java.util.Vector) num.remove(0);</span>
+<span class="nc" id="L73">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L74">            numEstadosPersona.add(tempObject);</span>
+
+<span class="nc" id="L76">            num = this.agente.select(&quot;SELECT COUNT(vulnerable) FROM Persona WHERE vulnerable=1&quot;, 1);</span>
+<span class="nc" id="L77">            tempVector = (java.util.Vector) num.remove(0);</span>
+<span class="nc" id="L78">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L79">            numEstadosPersona.add(tempObject);</span>
+
+<span class="nc" id="L81">            num = this.agente.select(&quot;SELECT COUNT(vacunado) FROM Persona WHERE vacunado=1&quot;, 1);</span>
+<span class="nc" id="L82">            tempVector = (java.util.Vector) num.remove(0);</span>
+<span class="nc" id="L83">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L84">            numEstadosPersona.add(tempObject);</span>
+
+<span class="nc" id="L86">        } catch (Exception ex) {</span>
+<span class="nc" id="L87">            System.out.println(ex);</span>
+<span class="nc" id="L88">        }</span>
+
+<span class="nc" id="L90">        return numEstadosPersona;</span>
+    }
+
+    public LinkedList&lt;String&gt; getEnfermedades() {
+
+<span class="nc" id="L95">        Vector&lt;Object&gt; num = null;</span>
+
+        java.util.Vector tempVector;
+        Object tempObject;
+<span class="nc" id="L99">        LinkedList&lt;String&gt; enfermedades = new LinkedList();</span>
+
+        try {
+<span class="nc" id="L102">            num = this.agente.select(&quot;SELECT Nombre FROM Enfermedad&quot;, 1);</span>
+
+<span class="nc bnc" id="L104" title="All 2 branches missed.">            for (int i = 0; i &lt; num.size(); i++) {</span>
+<span class="nc" id="L105">                tempVector = (java.util.Vector) num.get(i);</span>
+<span class="nc" id="L106">                tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L107">                enfermedades.add(String.valueOf(tempObject));</span>
+            }
+
+<span class="nc" id="L110">        } catch (Exception ex) {</span>
+<span class="nc" id="L111">            System.out.println(ex);</span>
+<span class="nc" id="L112">        }</span>
+
+<span class="nc" id="L114">        return enfermedades;</span>
+    }
+
+    public LinkedList&lt;String&gt; getNumCampaniaEnfermedad(String enfermedad) {
+
+<span class="nc" id="L119">        Vector&lt;Object&gt; num = null;</span>
+
+        java.util.Vector tempVector;
+        Object tempObject;
+<span class="nc" id="L123">        LinkedList&lt;String&gt; numCampaniasEnfermedades = new LinkedList();</span>
+
+        try {
+<span class="nc" id="L126">            num = this.agente.select(&quot;SELECT COUNT(ID) FROM `Campania` WHERE Tipo='Informativa' AND Nombre='&quot;+enfermedad+&quot;'&quot;, 1);</span>
+<span class="nc" id="L127">            tempVector = (java.util.Vector) num.get(0);</span>
+<span class="nc" id="L128">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L129">            numCampaniasEnfermedades.add(String.valueOf(tempObject));</span>
+            
+<span class="nc" id="L131">            num = this.agente.select(&quot;SELECT COUNT(ID) FROM `Campania` WHERE Tipo='Vacunacion' AND Nombre='&quot;+enfermedad+&quot;'&quot;, 1);</span>
+<span class="nc" id="L132">            tempVector = (java.util.Vector) num.get(0);</span>
+<span class="nc" id="L133">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L134">            numCampaniasEnfermedades.add(String.valueOf(tempObject));</span>
+
+<span class="nc" id="L136">        } catch (Exception ex) {</span>
+<span class="nc" id="L137">            System.out.println(ex);</span>
+<span class="nc" id="L138">        }</span>
+
+<span class="nc" id="L140">        return numCampaniasEnfermedades;</span>
+    }
+    
+    
+    public Vector getEvolucionEnfermedad(String Enfermedad) {
+<span class="nc" id="L145">        Vector&lt;Object&gt; evolucion = null;</span>
+        try {
+<span class="nc" id="L147">            evolucion = this.agente.select(&quot;SELECT Fecha,Contagios FROM Evolucion WHERE Enfermedad='&quot;+Enfermedad+&quot;' ORDER By Fecha DESC&quot;, 2);</span>
+
+<span class="nc" id="L149">        } catch (Exception ex) {</span>
+<span class="nc" id="L150">            System.out.println(ex);</span>
+<span class="nc" id="L151">        }</span>
+<span class="nc" id="L152">        return evolucion;</span>
+    }
+    
+    public LinkedList getEvolucionCuatrimestres(String enfermedad) {
+
+<span class="nc" id="L157">        Vector&lt;Object&gt; num = null;</span>
+
+        java.util.Vector tempVector;
+        Object tempObject;
+<span class="nc" id="L161">        LinkedList evolucion = new LinkedList();</span>
+
+        try {
+            //PARA 2020
+<span class="nc" id="L165">            num = this.agente.select(&quot;SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='&quot;+enfermedad+&quot;' AND Fecha &gt;= '2020-01-01' AND Fecha &lt; '2020-03-30'&quot;, 1);</span>
+<span class="nc" id="L166">            tempVector = (java.util.Vector) num.get(0);</span>
+<span class="nc" id="L167">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L168">            evolucion.add(String.valueOf(tempObject));</span>
+            
+<span class="nc" id="L170">            num = this.agente.select(&quot;SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='&quot;+enfermedad+&quot;' AND Fecha &gt;= '2020-03-30' AND Fecha &lt; '2020-06-30'&quot;, 1);</span>
+<span class="nc" id="L171">            tempVector = (java.util.Vector) num.get(0);</span>
+<span class="nc" id="L172">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L173">            evolucion.add(String.valueOf(tempObject));</span>
+            
+<span class="nc" id="L175">            num = this.agente.select(&quot;SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='&quot;+enfermedad+&quot;' AND Fecha &gt;= '2020-06-30' AND Fecha &lt; '2020-09-30'&quot;, 1);</span>
+<span class="nc" id="L176">            tempVector = (java.util.Vector) num.get(0);</span>
+<span class="nc" id="L177">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L178">            evolucion.add(String.valueOf(tempObject));</span>
+            
+<span class="nc" id="L180">            num = this.agente.select(&quot;SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='&quot;+enfermedad+&quot;' AND Fecha &gt;= '2020-09-01' AND Fecha &lt; '2020-12-30'&quot;, 1);</span>
+<span class="nc" id="L181">            tempVector = (java.util.Vector) num.get(0);</span>
+<span class="nc" id="L182">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L183">            evolucion.add(String.valueOf(tempObject));</span>
+            
+            //PARA 2021
+<span class="nc" id="L186">            num = this.agente.select(&quot;SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='&quot;+enfermedad+&quot;' AND Fecha &gt;= '2021-01-01' AND Fecha &lt; '2021-03-30'&quot;, 1);</span>
+<span class="nc" id="L187">            tempVector = (java.util.Vector) num.get(0);</span>
+<span class="nc" id="L188">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L189">            evolucion.add(String.valueOf(tempObject));</span>
+            
+<span class="nc" id="L191">            num = this.agente.select(&quot;SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='&quot;+enfermedad+&quot;' AND Fecha &gt;= '2021-03-30' AND Fecha &lt; '2021-06-30'&quot;, 1);</span>
+<span class="nc" id="L192">            tempVector = (java.util.Vector) num.get(0);</span>
+<span class="nc" id="L193">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L194">            evolucion.add(String.valueOf(tempObject));</span>
+            
+<span class="nc" id="L196">            num = this.agente.select(&quot;SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='&quot;+enfermedad+&quot;' AND Fecha &gt;= '2021-06-30' AND Fecha &lt; '2021-09-30'&quot;, 1);</span>
+<span class="nc" id="L197">            tempVector = (java.util.Vector) num.get(0);</span>
+<span class="nc" id="L198">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L199">            evolucion.add(String.valueOf(tempObject));</span>
+            
+<span class="nc" id="L201">            num = this.agente.select(&quot;SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='&quot;+enfermedad+&quot;' AND Fecha &gt;= '2021-09-01' AND Fecha &lt; '2021-12-30'&quot;, 1);</span>
+<span class="nc" id="L202">            tempVector = (java.util.Vector) num.get(0);</span>
+<span class="nc" id="L203">            tempObject = tempVector.remove(0);</span>
+<span class="nc" id="L204">            evolucion.add(String.valueOf(tempObject));</span>
+
+<span class="nc" id="L206">        } catch (Exception ex) {</span>
+<span class="nc" id="L207">            System.out.println(ex);</span>
+<span class="nc" id="L208">        }</span>
+
+<span class="nc" id="L210">        return evolucion;</span>
+    }
+    
+    public Vector getVacunasEnfermedades() {
+<span class="nc" id="L214">        Vector&lt;Object&gt; evolucion = null;</span>
+        try {
+<span class="nc" id="L216">            evolucion = this.agente.select(&quot;SELECT Nombre,Vacunas FROM Enfermedad &quot;, 2);</span>
+
+<span class="nc" id="L218">        } catch (Exception ex) {</span>
+<span class="nc" id="L219">            System.out.println(ex);</span>
+<span class="nc" id="L220">        }</span>
+<span class="nc" id="L221">        return evolucion;</span>
+    }
+    
+    public Vector getAprovisionamientoVacunas() {
+<span class="nc" id="L225">        Vector&lt;Object&gt; evolucion = null;</span>
+        try {
+<span class="nc" id="L227">            evolucion = this.agente.select(&quot;SELECT Nombre, Cantidad FROM Aprovisionamiento&quot;, 2);</span>
+
+<span class="nc" id="L229">        } catch (Exception ex) {</span>
+<span class="nc" id="L230">            System.out.println(ex);</span>
+<span class="nc" id="L231">        }</span>
+<span class="nc" id="L232">        return evolucion;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
