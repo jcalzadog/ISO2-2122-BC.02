@@ -8,6 +8,7 @@ import esi.uclm.gepi.Dominio.GestorEstadistica;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -16,7 +17,7 @@ import java.util.logging.Logger;
 public class IU_Estadisticas extends javax.swing.JDialog {
 
     private GestorEstadistica gestorE;
-    
+
     /**
      * Creates new form IU_Estadisticas
      */
@@ -26,23 +27,22 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         this.setTitle("Estadísticas");
         this.setResizable(false);
-        
+
         try {
             gestorE = new GestorEstadistica();
-            
+
             cargarDatos();
-            
+
         } catch (Exception ex) {
             Logger.getLogger(IU_Estadisticas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
     }
-    
-    private void cargarDatos(){
+
+    private void cargarDatos() {
         Object numEnfermedadesTotales = gestorE.getNumeroEnfermedades();
         lblNumE.setText(numEnfermedadesTotales + "");
-        
+
         LinkedList<Object> numEstadosPersona = gestorE.getNumeroPersonasEstados();
         lblNumSanas.setText(numEstadosPersona.get(3) + "");
         lblNumVacunadas.setText(numEstadosPersona.get(6) + "");
@@ -51,6 +51,20 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         lblNumEnfermas.setText(numEstadosPersona.get(0) + "");
         lblNumCuarentena.setText(numEstadosPersona.get(4) + "");
         lblNumVulnerables.setText(numEstadosPersona.get(5) + "");
+
+        DefaultListModel<String> model = new DefaultListModel<String>();
+        LinkedList<String> enfermedadesCatalogadas = gestorE.getEnfermedades();
+        for (int i = 0; i < enfermedadesCatalogadas.size(); i++) {
+            model.addElement(enfermedadesCatalogadas.get(i));
+        }
+        jListEnfermedades.setModel(model);
+        jListEnfermedades.addListSelectionListener(e -> {
+            String enfermedadSeleccionada = jListEnfermedades.getSelectedValue();
+            LinkedList<String> numCapanias = gestorE.getNumCampañaEnfermedad(enfermedadSeleccionada);
+            lblNumInfor.setText(numCapanias.get(0));
+            lblNumVacu.setText(numCapanias.get(1));
+        });
+
     }
 
     /**
@@ -83,6 +97,13 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         lblNumVulnerables = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListEnfermedades = new javax.swing.JList<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblNumInfor = new javax.swing.JLabel();
+        lblNumVacu = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
 
@@ -247,15 +268,59 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         tbGeneral.addTab("Enfermedades", jPanel3);
 
+        jScrollPane1.setViewportView(jListEnfermedades);
+
+        jLabel1.setText("Enfermedades");
+
+        jLabel2.setText("Número de Campañas Informativas:");
+
+        jLabel3.setText("Número de Campañas Vacunativas:");
+
+        lblNumInfor.setText("0");
+
+        lblNumVacu.setText("0");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(81, 81, 81)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblNumInfor))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblNumVacu)))))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(lblNumInfor))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(lblNumVacu))))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         tbGeneral.addTab("Campañas", jPanel1);
@@ -345,18 +410,25 @@ public class IU_Estadisticas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JList<String> jListEnfermedades;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNumAtencion;
     private javax.swing.JLabel lblNumConfinadas;
     private javax.swing.JLabel lblNumCuarentena;
     private javax.swing.JLabel lblNumE;
     private javax.swing.JLabel lblNumEnfermas;
+    private javax.swing.JLabel lblNumInfor;
     private javax.swing.JLabel lblNumSanas;
+    private javax.swing.JLabel lblNumVacu;
     private javax.swing.JLabel lblNumVacunadas;
     private javax.swing.JLabel lblNumVulnerables;
     private javax.swing.JLabel lblTituloAtenc;
