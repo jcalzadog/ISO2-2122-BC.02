@@ -36,7 +36,7 @@
     <Container class="javax.swing.JTabbedPane" name="tbGeneral">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
+          <Font name="Tahoma" size="12" style="0"/>
         </Property>
       </Properties>
       <AccessibilityProperties>
@@ -59,11 +59,12 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      <Component id="lblNumEnfermedades" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTituloEnfermedades" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblNumE" min="-2" pref="59" max="-2" attributes="0"/>
-                      <EmptySpace pref="314" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
+                  <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -71,20 +72,18 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblNumEnfermedades" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTituloEnfermedades" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblNumE" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="267" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="jPanel6" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblNumEnfermedades">
+            <Component class="javax.swing.JLabel" name="lblTituloEnfermedades">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="13" style="1"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="N&#xfa;mero de Enfermedades Totales:"/>
               </Properties>
               <AccessibilityProperties>
@@ -102,6 +101,211 @@
                 <Property name="text" type="java.lang.String" value="00000"/>
               </Properties>
             </Component>
+            <Container class="javax.swing.JPanel" name="jPanel6">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                    <EtchetBorder/>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lblTituloConfi" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="lblNumConfinadas" min="-2" pref="59" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblTituloSanas" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblNumSanas" min="-2" pref="59" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblTituloVac" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblNumVacunadas" min="-2" pref="59" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblTituloAtenc" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblNumAtencion" min="-2" pref="59" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="lblTituloVulnerables" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblNumVulnerables" min="-2" pref="59" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="lblTituloCuarent" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblNumCuarentena" min="-2" pref="59" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="lblTituloEnfermas" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblNumEnfermas" min="-2" pref="59" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="85" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblTituloSanas" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNumSanas" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTituloEnfermas" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNumEnfermas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblTituloVac" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNumVacunadas" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTituloCuarent" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNumCuarentena" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblTituloAtenc" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNumAtencion" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTituloVulnerables" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNumVulnerables" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblTituloConfi" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNumConfinadas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="55" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="lblTituloSanas">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Personas Sanas: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblTituloVac">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Personas Vacunadas: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblNumVacunadas">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="13" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="cc" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="00000"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblNumSanas">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="13" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="cc" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="00000"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblTituloAtenc">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Personas En Atenci&#xf3;n: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblTituloConfi">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Personas Confinadas: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblNumAtencion">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="13" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="00000"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblNumConfinadas">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="13" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="00000"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblTituloEnfermas">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Personas Enfermas: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblTituloCuarent">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Personas En Cuarentena: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblNumEnfermas">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="13" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="cc" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="00000"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblNumCuarentena">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="13" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="cc" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="00000"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblTituloVulnerables">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Personas Vulnerables: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblNumVulnerables">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="13" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="cc" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="00000"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel3">
@@ -121,7 +325,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="314" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="336" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -143,7 +347,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="314" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="336" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -165,7 +369,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="314" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="336" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -187,7 +391,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="314" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="336" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>

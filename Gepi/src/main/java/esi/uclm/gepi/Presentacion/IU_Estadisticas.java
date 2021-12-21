@@ -5,6 +5,7 @@
 package esi.uclm.gepi.Presentacion;
 
 import esi.uclm.gepi.Dominio.GestorEstadistica;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,6 +42,15 @@ public class IU_Estadisticas extends javax.swing.JDialog {
     private void cargarDatos(){
         Object numEnfermedadesTotales = gestorE.getNumeroEnfermedades();
         lblNumE.setText(numEnfermedadesTotales + "");
+        
+        LinkedList<Object> numEstadosPersona = gestorE.getNumeroPersonasEstados();
+        lblNumSanas.setText(numEstadosPersona.get(3) + "");
+        lblNumVacunadas.setText(numEstadosPersona.get(6) + "");
+        lblNumAtencion.setText(numEstadosPersona.get(2) + "");
+        lblNumConfinadas.setText(numEstadosPersona.get(1) + "");
+        lblNumEnfermas.setText(numEstadosPersona.get(0) + "");
+        lblNumCuarentena.setText(numEstadosPersona.get(4) + "");
+        lblNumVulnerables.setText(numEstadosPersona.get(5) + "");
     }
 
     /**
@@ -54,8 +64,23 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         tbGeneral = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        lblNumEnfermedades = new javax.swing.JLabel();
+        lblTituloEnfermedades = new javax.swing.JLabel();
         lblNumE = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        lblTituloSanas = new javax.swing.JLabel();
+        lblTituloVac = new javax.swing.JLabel();
+        lblNumVacunadas = new javax.swing.JLabel();
+        lblNumSanas = new javax.swing.JLabel();
+        lblTituloAtenc = new javax.swing.JLabel();
+        lblTituloConfi = new javax.swing.JLabel();
+        lblNumAtencion = new javax.swing.JLabel();
+        lblNumConfinadas = new javax.swing.JLabel();
+        lblTituloEnfermas = new javax.swing.JLabel();
+        lblTituloCuarent = new javax.swing.JLabel();
+        lblNumEnfermas = new javax.swing.JLabel();
+        lblNumCuarentena = new javax.swing.JLabel();
+        lblTituloVulnerables = new javax.swing.JLabel();
+        lblNumVulnerables = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -63,14 +88,124 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        tbGeneral.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tbGeneral.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        lblNumEnfermedades.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblNumEnfermedades.setText("Número de Enfermedades Totales:");
+        lblTituloEnfermedades.setText("Número de Enfermedades Totales:");
 
         lblNumE.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNumE.setForeground(new java.awt.Color(204, 0, 0));
         lblNumE.setText("00000");
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lblTituloSanas.setText("Personas Sanas: ");
+
+        lblTituloVac.setText("Personas Vacunadas: ");
+
+        lblNumVacunadas.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblNumVacunadas.setForeground(new java.awt.Color(0, 204, 0));
+        lblNumVacunadas.setText("00000");
+
+        lblNumSanas.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblNumSanas.setForeground(new java.awt.Color(0, 204, 0));
+        lblNumSanas.setText("00000");
+
+        lblTituloAtenc.setText("Personas En Atención: ");
+
+        lblTituloConfi.setText("Personas Confinadas: ");
+
+        lblNumAtencion.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblNumAtencion.setText("00000");
+
+        lblNumConfinadas.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblNumConfinadas.setText("00000");
+
+        lblTituloEnfermas.setText("Personas Enfermas: ");
+
+        lblTituloCuarent.setText("Personas En Cuarentena: ");
+
+        lblNumEnfermas.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblNumEnfermas.setForeground(new java.awt.Color(204, 0, 0));
+        lblNumEnfermas.setText("00000");
+
+        lblNumCuarentena.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblNumCuarentena.setForeground(new java.awt.Color(204, 0, 0));
+        lblNumCuarentena.setText("00000");
+
+        lblTituloVulnerables.setText("Personas Vulnerables: ");
+
+        lblNumVulnerables.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblNumVulnerables.setForeground(new java.awt.Color(204, 0, 0));
+        lblNumVulnerables.setText("00000");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(lblTituloConfi)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblNumConfinadas, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(lblTituloSanas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblNumSanas, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(lblTituloVac)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblNumVacunadas, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(lblTituloAtenc)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblNumAtencion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(118, 118, 118)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(lblTituloVulnerables)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblNumVulnerables, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(lblTituloCuarent)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblNumCuarentena, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(lblTituloEnfermas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblNumEnfermas, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(85, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTituloSanas)
+                    .addComponent(lblNumSanas)
+                    .addComponent(lblTituloEnfermas)
+                    .addComponent(lblNumEnfermas))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTituloVac)
+                    .addComponent(lblNumVacunadas)
+                    .addComponent(lblTituloCuarent)
+                    .addComponent(lblNumCuarentena))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTituloAtenc)
+                    .addComponent(lblNumAtencion)
+                    .addComponent(lblTituloVulnerables)
+                    .addComponent(lblNumVulnerables))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTituloConfi)
+                    .addComponent(lblNumConfinadas))
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -78,22 +213,24 @@ public class IU_Estadisticas extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addComponent(lblNumEnfermedades)
+                .addComponent(lblTituloEnfermedades)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblNumE, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(314, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNumEnfermedades)
+                    .addComponent(lblTituloEnfermedades)
                     .addComponent(lblNumE))
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        lblNumEnfermedades.getAccessibleContext().setAccessibleName("lblNumEnfermedades");
+        lblTituloEnfermedades.getAccessibleContext().setAccessibleName("lblNumEnfermedades");
 
         tbGeneral.addTab("Estadísticas Generales", jPanel2);
 
@@ -105,7 +242,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 314, Short.MAX_VALUE)
+            .addGap(0, 336, Short.MAX_VALUE)
         );
 
         tbGeneral.addTab("Enfermedades", jPanel3);
@@ -118,7 +255,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 314, Short.MAX_VALUE)
+            .addGap(0, 336, Short.MAX_VALUE)
         );
 
         tbGeneral.addTab("Campañas", jPanel1);
@@ -131,7 +268,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 314, Short.MAX_VALUE)
+            .addGap(0, 336, Short.MAX_VALUE)
         );
 
         tbGeneral.addTab("Vacunas", jPanel4);
@@ -144,7 +281,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 314, Short.MAX_VALUE)
+            .addGap(0, 336, Short.MAX_VALUE)
         );
 
         tbGeneral.addTab("Previsiones", jPanel5);
@@ -213,8 +350,23 @@ public class IU_Estadisticas extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel lblNumAtencion;
+    private javax.swing.JLabel lblNumConfinadas;
+    private javax.swing.JLabel lblNumCuarentena;
     private javax.swing.JLabel lblNumE;
-    private javax.swing.JLabel lblNumEnfermedades;
+    private javax.swing.JLabel lblNumEnfermas;
+    private javax.swing.JLabel lblNumSanas;
+    private javax.swing.JLabel lblNumVacunadas;
+    private javax.swing.JLabel lblNumVulnerables;
+    private javax.swing.JLabel lblTituloAtenc;
+    private javax.swing.JLabel lblTituloConfi;
+    private javax.swing.JLabel lblTituloCuarent;
+    private javax.swing.JLabel lblTituloEnfermas;
+    private javax.swing.JLabel lblTituloEnfermedades;
+    private javax.swing.JLabel lblTituloSanas;
+    private javax.swing.JLabel lblTituloVac;
+    private javax.swing.JLabel lblTituloVulnerables;
     private javax.swing.JTabbedPane tbGeneral;
     // End of variables declaration//GEN-END:variables
 }

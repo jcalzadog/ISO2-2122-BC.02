@@ -40,26 +40,53 @@ Agente agente;
     
     public LinkedList<Object> getNumeroPersonasEstados(){
         
-        Vector<Object> numConfinados = null;
+        Vector<Object> num = null;
    
         java.util.Vector tempVector;
         Object tempObject;
         LinkedList<Object> numEstadosPersona = new LinkedList();
         
-        try {
-            numConfinados = this.agente.select("SELECT COUNT(confinado) FROM Persona WHERE confinado=1",1);
-            tempVector = (java.util.Vector) numConfinados.remove(0);
+        try { 
+            num = this.agente.select("SELECT COUNT(enfermo) FROM Persona WHERE enfermo=1",1);
+            tempVector = (java.util.Vector) num.remove(0);
             tempObject = tempVector.remove(0);
             numEstadosPersona.add(tempObject);
-           
+            
+            num = this.agente.select("SELECT COUNT(confinado) FROM Persona WHERE confinado=1",1);
+            tempVector = (java.util.Vector) num.remove(0);
+            tempObject = tempVector.remove(0);
+            numEstadosPersona.add(tempObject);
+            
+            num = this.agente.select("SELECT COUNT(atencion) FROM Persona WHERE atencion=1",1);
+            tempVector = (java.util.Vector) num.remove(0);
+            tempObject = tempVector.remove(0);
+            numEstadosPersona.add(tempObject);
+            
+            num = this.agente.select("SELECT COUNT(sano) FROM Persona WHERE sano=1",1);
+            tempVector = (java.util.Vector) num.remove(0);
+            tempObject = tempVector.remove(0);
+            numEstadosPersona.add(tempObject);      
+            
+            num = this.agente.select("SELECT COUNT(cuarentena) FROM Persona WHERE cuarentena=1",1);
+            tempVector = (java.util.Vector) num.remove(0);
+            tempObject = tempVector.remove(0);
+            numEstadosPersona.add(tempObject);     
+            
+            num = this.agente.select("SELECT COUNT(vulnerable) FROM Persona WHERE vulnerable=1",1);
+            tempVector = (java.util.Vector) num.remove(0);
+            tempObject = tempVector.remove(0);
+            numEstadosPersona.add(tempObject);           
+            
+            num = this.agente.select("SELECT COUNT(vacunado) FROM Persona WHERE vacunado=1",1);
+            tempVector = (java.util.Vector) num.remove(0);
+            tempObject = tempVector.remove(0);
+            numEstadosPersona.add(tempObject);
+            
         } catch (Exception ex) {
             System.out.println(ex);
         }
         
-        
-        
         return numEstadosPersona;
-        
     }
     
     
