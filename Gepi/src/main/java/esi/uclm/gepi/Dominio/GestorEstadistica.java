@@ -114,30 +114,30 @@ public class GestorEstadistica {
         return enfermedades;
     }
 
-    public LinkedList<String> getNumCampañaEnfermedad(String enfermedad) {
+    public LinkedList<String> getNumCampaniaEnfermedad(String enfermedad) {
 
         Vector<Object> num = null;
 
         java.util.Vector tempVector;
         Object tempObject;
-        LinkedList<String> numCampañiasEnfermedades = new LinkedList();
+        LinkedList<String> numCampaniasEnfermedades = new LinkedList();
 
         try {
             num = this.agente.select("SELECT COUNT(ID) FROM `Campania` WHERE Tipo='Informativa' AND Nombre='"+enfermedad+"'", 1);
             tempVector = (java.util.Vector) num.get(0);
             tempObject = tempVector.remove(0);
-            numCampañiasEnfermedades.add(String.valueOf(tempObject));
+            numCampaniasEnfermedades.add(String.valueOf(tempObject));
             
             num = this.agente.select("SELECT COUNT(ID) FROM `Campania` WHERE Tipo='Vacunacion' AND Nombre='"+enfermedad+"'", 1);
             tempVector = (java.util.Vector) num.get(0);
             tempObject = tempVector.remove(0);
-            numCampañiasEnfermedades.add(String.valueOf(tempObject));
+            numCampaniasEnfermedades.add(String.valueOf(tempObject));
 
         } catch (Exception ex) {
             System.out.println(ex);
         }
 
-        return numCampañiasEnfermedades;
+        return numCampaniasEnfermedades;
     }
     
     

@@ -18,7 +18,7 @@ public class GestorAprovisionamiento {
         this.agente = Agente.getAgente();
     }
     
-    public int añadirAprovisionamiento(String nombre, String num) throws Exception{
+    public int aniadirAprovisionamiento(String nombre, String num) throws Exception{
         Aprovisionamiento aprovisionamiento = new Aprovisionamiento();
         
         aprovisionamiento.setNombre(nombre);

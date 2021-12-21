@@ -30,7 +30,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Estadísticas");
+        this.setTitle("EstadÃ­sticas");
         this.setResizable(false);
 
         try {
@@ -115,11 +115,11 @@ public class IU_Estadisticas extends javax.swing.JDialog {
             }
         });
 
-        //ESTADISTICAS CAMPAÑAS   
+        //ESTADISTICAS CAMPAÃ‘AS   
         jListEnfermedades.setModel(model);
         jListEnfermedades.addListSelectionListener(e -> {
             String enfermedadSeleccionada = jListEnfermedades.getSelectedValue();
-            LinkedList<String> numCapanias = gestorE.getNumCampañaEnfermedad(enfermedadSeleccionada);
+            LinkedList<String> numCapanias = gestorE.getNumCampaniaEnfermedad(enfermedadSeleccionada);
             lblNumInfor.setText(numCapanias.get(0));
             lblNumVacu.setText(numCapanias.get(1));
         });
@@ -265,7 +265,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         tbGeneral.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        lblTituloEnfermedades.setText("Número de Enfermedades Totales:");
+        lblTituloEnfermedades.setText("NÃºmero de Enfermedades Totales:");
 
         lblNumE.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNumE.setForeground(new java.awt.Color(204, 0, 0));
@@ -285,7 +285,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         lblNumSanas.setForeground(new java.awt.Color(0, 204, 0));
         lblNumSanas.setText("00000");
 
-        lblTituloAtenc.setText("Personas En Atención: ");
+        lblTituloAtenc.setText("Personas En AtenciÃ³n: ");
 
         lblTituloConfi.setText("Personas Confinadas: ");
 
@@ -407,9 +407,9 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         lblTituloEnfermedades.getAccessibleContext().setAccessibleName("lblNumEnfermedades");
 
-        tbGeneral.addTab("Estadísticas Generales", jPanel2);
+        tbGeneral.addTab("EstadÃ­sticas Generales", jPanel2);
 
-        lblTituloCatalog.setText("Número de Enfermedades Catalogadas:");
+        lblTituloCatalog.setText("NÃºmero de Enfermedades Catalogadas:");
 
         lblNumECatalog.setText("0");
 
@@ -700,9 +700,9 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         jLabel1.setText("Enfermedades");
 
-        jLabel2.setText("Número de Campañas Informativas:");
+        jLabel2.setText("NÃºmero de CampaÃ±as Informativas:");
 
-        jLabel3.setText("Número de Campañas Vacunativas:");
+        jLabel3.setText("NÃºmero de CampaÃ±as Vacunativas:");
 
         lblNumInfor.setText("0");
 
@@ -751,7 +751,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        tbGeneral.addTab("Campañas", jPanel1);
+        tbGeneral.addTab("CampaÃ±as", jPanel1);
 
         jLabel16.setText("Vacunas de Enfermedades");
 
@@ -816,7 +816,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         tbGeneral.addTab("Vacunas", jPanel4);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel18.setText("Relación Entre Personas Vacunadas y Enfermas");
+        jLabel18.setText("RelaciÃ³n Entre Personas Vacunadas y Enfermas");
 
         jLabel19.setText("Vacunadas:");
 
@@ -827,7 +827,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel22.setText("Previsión de Olas de Contagios");
+        jLabel22.setText("PrevisiÃ³n de Olas de Contagios");
 
         jLabel26.setText("Selecciona Enfermedad y Intervalo de Tiempo");
 
@@ -837,7 +837,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         jLabel28.setText("Intervalo:");
 
-        cmbIntervalos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semana", "Mes", "Año" }));
+        cmbIntervalos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semana", "Mes", "AÃ±o" }));
 
         jPanel9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 

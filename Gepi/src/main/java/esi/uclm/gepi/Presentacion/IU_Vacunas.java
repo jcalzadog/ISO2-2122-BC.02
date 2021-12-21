@@ -480,7 +480,7 @@ public class IU_Vacunas extends javax.swing.JDialog {
         }else{
             try {
                 gestorApro = new GestorAprovisionamiento();
-                int resultado = gestorApro.añadirAprovisionamiento(nombre, cant);
+                int resultado = gestorApro.aniadirAprovisionamiento(nombre, cant);
                 
                 if(resultado == 1){
                     JOptionPane.showMessageDialog(null, "Aprovisionamiento añadida correctamente");
