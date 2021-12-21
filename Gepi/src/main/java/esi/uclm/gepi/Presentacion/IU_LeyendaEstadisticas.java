@@ -4,6 +4,7 @@
  */
 package esi.uclm.gepi.Presentacion;
 
+import java.awt.Color;
 import javax.swing.ImageIcon;
 
 /**
@@ -18,7 +19,9 @@ public class IU_LeyendaEstadisticas extends javax.swing.JDialog {
     public IU_LeyendaEstadisticas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-
+        panel1.setBackground(Color.GREEN);
+        panel2.setBackground(Color.ORANGE);
+        panel3.setBackground(Color.RED);
         this.setTitle("Leyenda");
         this.setResizable(false);
         this.setLocationRelativeTo(null);
@@ -34,9 +37,9 @@ public class IU_LeyendaEstadisticas extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        barra1Q1 = new javax.swing.JPanel();
-        barra1Q2 = new javax.swing.JPanel();
-        barra1Q3 = new javax.swing.JPanel();
+        panel1 = new javax.swing.JPanel();
+        panel2 = new javax.swing.JPanel();
+        panel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -45,46 +48,46 @@ public class IU_LeyendaEstadisticas extends javax.swing.JDialog {
 
         jLabel1.setText("Leyenda");
 
-        barra1Q1.setBackground(new java.awt.Color(102, 255, 102));
-        barra1Q1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        barra1Q1.setForeground(new java.awt.Color(102, 255, 102));
+        panel1.setBackground(new java.awt.Color(102, 255, 102));
+        panel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panel1.setForeground(new java.awt.Color(102, 255, 102));
 
-        javax.swing.GroupLayout barra1Q1Layout = new javax.swing.GroupLayout(barra1Q1);
-        barra1Q1.setLayout(barra1Q1Layout);
-        barra1Q1Layout.setHorizontalGroup(
-            barra1Q1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
+        panel1.setLayout(panel1Layout);
+        panel1Layout.setHorizontalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 43, Short.MAX_VALUE)
         );
-        barra1Q1Layout.setVerticalGroup(
-            barra1Q1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panel1Layout.setVerticalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 45, Short.MAX_VALUE)
         );
 
-        barra1Q2.setBackground(new java.awt.Color(255, 153, 102));
-        barra1Q2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panel2.setBackground(new java.awt.Color(255, 153, 102));
+        panel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        javax.swing.GroupLayout barra1Q2Layout = new javax.swing.GroupLayout(barra1Q2);
-        barra1Q2.setLayout(barra1Q2Layout);
-        barra1Q2Layout.setHorizontalGroup(
-            barra1Q2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
+        panel2.setLayout(panel2Layout);
+        panel2Layout.setHorizontalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 43, Short.MAX_VALUE)
         );
-        barra1Q2Layout.setVerticalGroup(
-            barra1Q2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panel2Layout.setVerticalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 45, Short.MAX_VALUE)
         );
 
-        barra1Q3.setBackground(new java.awt.Color(204, 0, 0));
-        barra1Q3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panel3.setBackground(new java.awt.Color(204, 0, 0));
+        panel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        javax.swing.GroupLayout barra1Q3Layout = new javax.swing.GroupLayout(barra1Q3);
-        barra1Q3.setLayout(barra1Q3Layout);
-        barra1Q3Layout.setHorizontalGroup(
-            barra1Q3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panel3Layout = new javax.swing.GroupLayout(panel3);
+        panel3.setLayout(panel3Layout);
+        panel3Layout.setHorizontalGroup(
+            panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 43, Short.MAX_VALUE)
         );
-        barra1Q3Layout.setVerticalGroup(
-            barra1Q3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panel3Layout.setVerticalGroup(
+            panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 45, Short.MAX_VALUE)
         );
 
@@ -102,15 +105,15 @@ public class IU_LeyendaEstadisticas extends javax.swing.JDialog {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(barra1Q2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(barra1Q3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(barra1Q1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -123,7 +126,7 @@ public class IU_LeyendaEstadisticas extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
-                        .addComponent(barra1Q1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1)
@@ -132,13 +135,13 @@ public class IU_LeyendaEstadisticas extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(barra1Q2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(barra1Q3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jLabel4)))
@@ -191,12 +194,12 @@ public class IU_LeyendaEstadisticas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel barra1Q1;
-    private javax.swing.JPanel barra1Q2;
-    private javax.swing.JPanel barra1Q3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel panel1;
+    private javax.swing.JPanel panel2;
+    private javax.swing.JPanel panel3;
     // End of variables declaration//GEN-END:variables
 }

@@ -152,4 +152,62 @@ public class GestorEstadistica {
         return evolucion;
     }
     
+    public LinkedList getEvolucionCuatrimestres(String enfermedad) {
+
+        Vector<Object> num = null;
+
+        java.util.Vector tempVector;
+        Object tempObject;
+        LinkedList evolucion = new LinkedList();
+
+        try {
+            //PARA 2020
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2020-01-01' AND Fecha < '2020-03-30'", 1);
+            tempVector = (java.util.Vector) num.get(0);
+            tempObject = tempVector.remove(0);
+            evolucion.add(String.valueOf(tempObject));
+            
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2020-03-30' AND Fecha < '2020-06-30'", 1);
+            tempVector = (java.util.Vector) num.get(0);
+            tempObject = tempVector.remove(0);
+            evolucion.add(String.valueOf(tempObject));
+            
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2020-06-30' AND Fecha < '2020-09-30'", 1);
+            tempVector = (java.util.Vector) num.get(0);
+            tempObject = tempVector.remove(0);
+            evolucion.add(String.valueOf(tempObject));
+            
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2020-09-01' AND Fecha < '2020-12-30'", 1);
+            tempVector = (java.util.Vector) num.get(0);
+            tempObject = tempVector.remove(0);
+            evolucion.add(String.valueOf(tempObject));
+            
+            //PARA 2021
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2021-01-01' AND Fecha < '2021-03-30'", 1);
+            tempVector = (java.util.Vector) num.get(0);
+            tempObject = tempVector.remove(0);
+            evolucion.add(String.valueOf(tempObject));
+            
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2021-03-30' AND Fecha < '2021-06-30'", 1);
+            tempVector = (java.util.Vector) num.get(0);
+            tempObject = tempVector.remove(0);
+            evolucion.add(String.valueOf(tempObject));
+            
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2021-06-30' AND Fecha < '2021-09-30'", 1);
+            tempVector = (java.util.Vector) num.get(0);
+            tempObject = tempVector.remove(0);
+            evolucion.add(String.valueOf(tempObject));
+            
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2021-09-01' AND Fecha < '2021-12-30'", 1);
+            tempVector = (java.util.Vector) num.get(0);
+            tempObject = tempVector.remove(0);
+            evolucion.add(String.valueOf(tempObject));
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
+        return evolucion;
+    }
+    
 }
