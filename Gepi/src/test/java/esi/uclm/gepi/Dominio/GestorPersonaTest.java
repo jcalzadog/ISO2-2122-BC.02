@@ -47,8 +47,6 @@ public class GestorPersonaTest {
         Vector expResult = null;
         Vector result = instance.getPersonas();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -62,8 +60,6 @@ public class GestorPersonaTest {
         Vector expResult = null;
         Vector result = instance.getPersonas(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -72,13 +68,11 @@ public class GestorPersonaTest {
     @Test
     public void testGetContactos() {
         System.out.println("getContactos");
-        int id = 0;
+        int id = 1;
         GestorPersona instance = new GestorPersona();
         Vector expResult = null;
         Vector result = instance.getContactos(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -91,7 +85,7 @@ public class GestorPersonaTest {
         String nombre = "";
         String apellidos = "";
         int telefono = 0;
-        String fechanac = "";
+        String fechanac = "2021-12-10";
         boolean enfermo = false;
         boolean confinado = false;
         boolean atencion = false;
@@ -102,8 +96,6 @@ public class GestorPersonaTest {
         String id_contactos = "";
         GestorPersona instance = new GestorPersona();
         instance.insertarPersona(id, nombre, apellidos, telefono, fechanac, enfermo, confinado, atencion, sano, cuarentena, vulnerable, vacunado, id_contactos);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -116,8 +108,6 @@ public class GestorPersonaTest {
         int identificadores = 0;
         GestorPersona instance = new GestorPersona();
         instance.insertarContactos(id, identificadores);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

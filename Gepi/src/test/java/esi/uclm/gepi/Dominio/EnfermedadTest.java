@@ -42,12 +42,12 @@ public class EnfermedadTest {
     @Test
     public void testGetNombre() {
         System.out.println("getNombre");
-        Enfermedad instance = new Enfermedad();
-        String expResult = "";
+        Enfermedad instance = new Enfermedad("Covid",null, 0, "", false, null);
+        String expResult = "Covid";
         String result = instance.getNombre();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -56,11 +56,11 @@ public class EnfermedadTest {
     @Test
     public void testSetNombre() {
         System.out.println("setNombre");
-        String nombre = "";
+        String nombre = "Covid";
         Enfermedad instance = new Enfermedad();
         instance.setNombre(nombre);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -69,12 +69,10 @@ public class EnfermedadTest {
     @Test
     public void testGetSintomas() {
         System.out.println("getSintomas");
-        Enfermedad instance = new Enfermedad();
+        Enfermedad instance = new Enfermedad("Covid",null, 0,"", false, null);
         String[] expResult = null;
         String[] result = instance.getSintomas();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -86,8 +84,6 @@ public class EnfermedadTest {
         String[] sintomas = null;
         Enfermedad instance = new Enfermedad();
         instance.setSintomas(sintomas);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -96,12 +92,10 @@ public class EnfermedadTest {
     @Test
     public void testGetTemporalidad() {
         System.out.println("getTemporalidad");
-        Enfermedad instance = new Enfermedad();
-        int expResult = 0;
+        Enfermedad instance = new Enfermedad("Covid",null, 12,"", false, null);
+        int expResult = 12;
         int result = instance.getTemporalidad();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -113,8 +107,6 @@ public class EnfermedadTest {
         int temporalidad = 0;
         Enfermedad instance = new Enfermedad();
         instance.setTemporalidad(temporalidad);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -123,12 +115,10 @@ public class EnfermedadTest {
     @Test
     public void testGetMedicinas() {
         System.out.println("getMedicinas");
-        Enfermedad instance = new Enfermedad();
-        String expResult = "";
+        Enfermedad instance = new Enfermedad("Covid",null, 0,"Paracetamol", false, null);
+        String expResult = "Paracetamol";
         String result = instance.getMedicinas();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -137,11 +127,9 @@ public class EnfermedadTest {
     @Test
     public void testSetMedicinas() {
         System.out.println("setMedicinas");
-        String medicinas = "";
+        String medicinas = "Paracetamol";
         Enfermedad instance = new Enfermedad();
         instance.setMedicinas(medicinas);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -150,12 +138,10 @@ public class EnfermedadTest {
     @Test
     public void testIsConfinamiento() {
         System.out.println("isConfinamiento");
-        Enfermedad instance = new Enfermedad();
+        Enfermedad instance = new Enfermedad("Covid",null, 12,"", false, null);
         boolean expResult = false;
         boolean result = instance.isConfinamiento();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -167,8 +153,6 @@ public class EnfermedadTest {
         boolean confinamiento = false;
         Enfermedad instance = new Enfermedad();
         instance.setConfinamiento(confinamiento);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -177,12 +161,10 @@ public class EnfermedadTest {
     @Test
     public void testGetVacunas() {
         System.out.println("getVacunas");
-        Enfermedad instance = new Enfermedad();
+        Enfermedad instance = new Enfermedad("Covid",null, 12,"", false, null);
         String[] expResult = null;
         String[] result = instance.getVacunas();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -194,22 +176,5 @@ public class EnfermedadTest {
         String[] vacunas = null;
         Enfermedad instance = new Enfermedad();
         instance.setVacunas(vacunas);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of toString method, of class Enfermedad.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Enfermedad instance = new Enfermedad();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
+    }  
 }
