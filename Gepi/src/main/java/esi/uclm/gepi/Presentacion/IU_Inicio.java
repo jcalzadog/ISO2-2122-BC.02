@@ -5,7 +5,7 @@
  */
 package esi.uclm.gepi.Presentacion;
 
-import Persistencia.Agente;
+import esi.uclm.gepi.Persistencia.Agente;
 import esi.uclm.gepi.Dominio.GestorEnfermedades;
 import java.util.Vector;
 import java.util.logging.Level;

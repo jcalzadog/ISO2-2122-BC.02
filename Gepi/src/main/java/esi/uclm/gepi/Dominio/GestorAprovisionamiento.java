@@ -4,7 +4,7 @@
  */
 package esi.uclm.gepi.Dominio;
 
-import Persistencia.Agente;
+import esi.uclm.gepi.Persistencia.Agente;
 
 /**
  *

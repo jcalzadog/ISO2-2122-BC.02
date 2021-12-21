@@ -1,4 +1,4 @@
-package Persistencia;
+package esi.uclm.gepi.Persistencia;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
