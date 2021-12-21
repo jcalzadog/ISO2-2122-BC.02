@@ -24,6 +24,6 @@ hs_err_pid*
 Gepi/nbactions.xml
 Gepi/target/classes/.netbeans_automatic_build
 Gepi/target/test-classes/.netbeans_automatic_build
-/Gepi/target/
+
 /Gepi/bin/target/
 /Gepi/nbproject/
