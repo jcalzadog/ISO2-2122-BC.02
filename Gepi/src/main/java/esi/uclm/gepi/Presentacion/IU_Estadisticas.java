@@ -6,6 +6,8 @@ package esi.uclm.gepi.Presentacion;
 
 import esi.uclm.gepi.Dominio.GestorEstadistica;
 import java.awt.Color;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.LinkedList;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -141,7 +143,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         //Asigna el modelo a la tabla
         tablaVacunas.setModel(modelo);
-        
+
         tablaAprovisionamiento.getTableHeader().setReorderingAllowed(false);
         modelo = new DefaultTableModel() {
             @Override
@@ -160,6 +162,13 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         //Asigna el modelo a la tabla
         tablaAprovisionamiento.setModel(modelo);
+
+        //ESTADISTICAS RELACIONES y PREVISIONES
+        lblPersonasVac.setText(numEstadosPersona.get(6) + "");
+        lblPersonasEnf.setText(numEstadosPersona.get(0) + "");
+        double relacion = Double.parseDouble(String.valueOf(numEstadosPersona.get(6))) / Double.parseDouble(String.valueOf(numEstadosPersona.get(0)));
+        NumberFormat format = new DecimalFormat("#.###");
+        lblRelacion.setText(String.valueOf(format.format(relacion)));
     }
 
     /**
@@ -952,7 +961,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
                 .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tbGeneral.addTab("Personas y Previsiones", jPanel5);
+        tbGeneral.addTab("Relaciones y Previsiones", jPanel5);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
