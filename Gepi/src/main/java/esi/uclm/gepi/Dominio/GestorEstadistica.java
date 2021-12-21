@@ -210,4 +210,26 @@ public class GestorEstadistica {
         return evolucion;
     }
     
+    public Vector getVacunasEnfermedades() {
+        Vector<Object> evolucion = null;
+        try {
+            evolucion = this.agente.select("SELECT Nombre,Vacunas FROM Enfermedad ", 2);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        return evolucion;
+    }
+    
+    public Vector getAprovisionamientoVacunas() {
+        Vector<Object> evolucion = null;
+        try {
+            evolucion = this.agente.select("SELECT Nombre, Cantidad FROM Aprovisionamiento", 2);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        return evolucion;
+    }
+    
 }

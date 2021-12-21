@@ -99,16 +99,15 @@ public class IU_Estadisticas extends javax.swing.JDialog {
             barras.add(barra2Q2);
             barras.add(barra2Q3);
             barras.add(barra2Q4);
-            
-            
-            for(int i = 0;i<evolucionCuatrimestres.size();i++){
+
+            for (int i = 0; i < evolucionCuatrimestres.size(); i++) {
                 int contagios = Integer.parseInt(String.valueOf(evolucionCuatrimestres.get(i)));
-                
-                if (contagios < 500){
+
+                if (contagios < 500) {
                     ((javax.swing.JPanel) barras.get(i)).setBackground(Color.GREEN);
-                } else if(contagios>=500 && contagios<1000){
+                } else if (contagios >= 500 && contagios < 1000) {
                     ((javax.swing.JPanel) barras.get(i)).setBackground(Color.ORANGE);
-                } else if (contagios>=1000){
+                } else if (contagios >= 1000) {
                     ((javax.swing.JPanel) barras.get(i)).setBackground(Color.RED);
                 }
             }
@@ -123,6 +122,44 @@ public class IU_Estadisticas extends javax.swing.JDialog {
             lblNumVacu.setText(numCapanias.get(1));
         });
 
+        //ESTADISTICAS VACUNAS
+        tablaVacunas.getTableHeader().setReorderingAllowed(false);
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int col) {
+                return false;
+            }
+        };
+        String[] col = {"Nombre", "Vacunas"};
+
+        modelo.setColumnIdentifiers(col);
+        Vector v = gestorE.getVacunasEnfermedades();
+
+        for (int i = 0; i < v.size(); i++) {
+            modelo.addRow((Vector) v.get(i));
+        }
+
+        //Asigna el modelo a la tabla
+        tablaVacunas.setModel(modelo);
+        
+        tablaAprovisionamiento.getTableHeader().setReorderingAllowed(false);
+        modelo = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int col) {
+                return false;
+            }
+        };
+        String[] col2 = {"Nombre", "Vacunas"};
+
+        modelo.setColumnIdentifiers(col2);
+        v = gestorE.getAprovisionamientoVacunas();
+
+        for (int i = 0; i < v.size(); i++) {
+            modelo.addRow((Vector) v.get(i));
+        }
+
+        //Asigna el modelo a la tabla
+        tablaAprovisionamiento.setModel(modelo);
     }
 
     /**
@@ -190,6 +227,12 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         lblNumInfor = new javax.swing.JLabel();
         lblNumVacu = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tablaAprovisionamiento = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tablaVacunas = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -684,15 +727,64 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         tbGeneral.addTab("Campañas", jPanel1);
 
+        jLabel16.setText("Vacunas de Enfermedades");
+
+        jLabel17.setText("Cantidad de Vacunas Disponibles");
+
+        tablaAprovisionamiento.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane5.setViewportView(tablaAprovisionamiento);
+
+        tablaVacunas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane6.setViewportView(tablaVacunas);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 606, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel16)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 345, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
 
         tbGeneral.addTab("Vacunas", jPanel4);
@@ -820,6 +912,8 @@ public class IU_Estadisticas extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -840,6 +934,8 @@ public class IU_Estadisticas extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTable jTableEvolucion;
     private javax.swing.JLabel lblNumAtencion;
     private javax.swing.JLabel lblNumConfinadas;
@@ -861,6 +957,8 @@ public class IU_Estadisticas extends javax.swing.JDialog {
     private javax.swing.JLabel lblTituloSanas;
     private javax.swing.JLabel lblTituloVac;
     private javax.swing.JLabel lblTituloVulnerables;
+    private javax.swing.JTable tablaAprovisionamiento;
+    private javax.swing.JTable tablaVacunas;
     private javax.swing.JTabbedPane tbGeneral;
     // End of variables declaration//GEN-END:variables
 }
