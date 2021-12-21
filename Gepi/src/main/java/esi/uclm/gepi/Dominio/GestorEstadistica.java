@@ -139,5 +139,17 @@ public class GestorEstadistica {
 
         return numCampañiasEnfermedades;
     }
+    
+    
+    public Vector getEvolucionEnfermedad(String Enfermedad) {
+        Vector<Object> evolucion = null;
+        try {
+            evolucion = this.agente.select("SELECT Fecha,Contagios FROM Evolucion WHERE Enfermedad='"+Enfermedad+"' ORDER By Fecha DESC", 2);
 
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        return evolucion;
+    }
+    
 }

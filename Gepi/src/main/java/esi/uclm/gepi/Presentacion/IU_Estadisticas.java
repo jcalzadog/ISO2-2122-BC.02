@@ -6,9 +6,11 @@ package esi.uclm.gepi.Presentacion;
 
 import esi.uclm.gepi.Dominio.GestorEstadistica;
 import java.util.LinkedList;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -40,6 +42,13 @@ public class IU_Estadisticas extends javax.swing.JDialog {
     }
 
     private void cargarDatos() {
+        DefaultListModel<String> model = new DefaultListModel<String>();
+        LinkedList<String> enfermedadesCatalogadas = gestorE.getEnfermedades();
+        for (int i = 0; i < enfermedadesCatalogadas.size(); i++) {
+            model.addElement(enfermedadesCatalogadas.get(i));
+        }
+
+        //ESTADISTICAS GENERALES
         Object numEnfermedadesTotales = gestorE.getNumeroEnfermedades();
         lblNumE.setText(numEnfermedadesTotales + "");
 
@@ -52,11 +61,36 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         lblNumCuarentena.setText(numEstadosPersona.get(4) + "");
         lblNumVulnerables.setText(numEstadosPersona.get(5) + "");
 
-        DefaultListModel<String> model = new DefaultListModel<String>();
-        LinkedList<String> enfermedadesCatalogadas = gestorE.getEnfermedades();
-        for (int i = 0; i < enfermedadesCatalogadas.size(); i++) {
-            model.addElement(enfermedadesCatalogadas.get(i));
-        }
+        //ESTADISTICAS ENFERMEDADES
+        lblNumECatalog.setText(numEnfermedadesTotales + "");
+        jListEnfermedades2.setModel(model);
+        jListEnfermedades2.addListSelectionListener(e -> {
+            String enfermedadSeleccionada = jListEnfermedades2.getSelectedValue();
+
+            //TABLA
+            jTableEvolucion.getTableHeader().setReorderingAllowed(false);
+            DefaultTableModel modelo = new DefaultTableModel() {
+                @Override
+                public boolean isCellEditable(int row, int col) {
+                    return false;
+                }
+            };
+            String[] col = {"Fecha", "Contagios"};
+
+            modelo.setColumnIdentifiers(col);
+            Vector v = gestorE.getEvolucionEnfermedad(enfermedadSeleccionada);
+
+            for (int i = 0; i < v.size(); i++) {
+                modelo.addRow((Vector) v.get(i));
+            }
+
+            //Asigna el modelo a la tabla
+            jTableEvolucion.setModel(modelo);
+
+            //BARRAS
+        });
+
+        //ESTADISTICAS CAMPAÑAS   
         jListEnfermedades.setModel(model);
         jListEnfermedades.addListSelectionListener(e -> {
             String enfermedadSeleccionada = jListEnfermedades.getSelectedValue();
@@ -96,6 +130,25 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         lblTituloVulnerables = new javax.swing.JLabel();
         lblNumVulnerables = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        lblTituloCatalog = new javax.swing.JLabel();
+        lblNumECatalog = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jListEnfermedades2 = new javax.swing.JList<>();
+        barra1Q1 = new javax.swing.JPanel();
+        barra1Q2 = new javax.swing.JPanel();
+        barra1Q3 = new javax.swing.JPanel();
+        barra1Q4 = new javax.swing.JPanel();
+        barra2Q1 = new javax.swing.JPanel();
+        barra2Q2 = new javax.swing.JPanel();
+        barra2Q3 = new javax.swing.JPanel();
+        barra4Q4 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTableEvolucion = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
+        btnLeyenda = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListEnfermedades = new javax.swing.JList<>();
@@ -198,7 +251,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
                                 .addComponent(lblTituloEnfermas)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblNumEnfermas, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,7 +278,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTituloConfi)
                     .addComponent(lblNumConfinadas))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -255,19 +308,229 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         tbGeneral.addTab("Estadísticas Generales", jPanel2);
 
+        lblTituloCatalog.setText("Número de Enfermedades Catalogadas:");
+
+        lblNumECatalog.setText("0");
+
+        jLabel4.setText("Enfermedades");
+
+        jListEnfermedades2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane2.setViewportView(jListEnfermedades2);
+
+        barra1Q1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout barra1Q1Layout = new javax.swing.GroupLayout(barra1Q1);
+        barra1Q1.setLayout(barra1Q1Layout);
+        barra1Q1Layout.setHorizontalGroup(
+            barra1Q1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+        barra1Q1Layout.setVerticalGroup(
+            barra1Q1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        barra1Q2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout barra1Q2Layout = new javax.swing.GroupLayout(barra1Q2);
+        barra1Q2.setLayout(barra1Q2Layout);
+        barra1Q2Layout.setHorizontalGroup(
+            barra1Q2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+        barra1Q2Layout.setVerticalGroup(
+            barra1Q2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        barra1Q3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout barra1Q3Layout = new javax.swing.GroupLayout(barra1Q3);
+        barra1Q3.setLayout(barra1Q3Layout);
+        barra1Q3Layout.setHorizontalGroup(
+            barra1Q3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+        barra1Q3Layout.setVerticalGroup(
+            barra1Q3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        barra1Q4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout barra1Q4Layout = new javax.swing.GroupLayout(barra1Q4);
+        barra1Q4.setLayout(barra1Q4Layout);
+        barra1Q4Layout.setHorizontalGroup(
+            barra1Q4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+        barra1Q4Layout.setVerticalGroup(
+            barra1Q4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        barra2Q1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout barra2Q1Layout = new javax.swing.GroupLayout(barra2Q1);
+        barra2Q1.setLayout(barra2Q1Layout);
+        barra2Q1Layout.setHorizontalGroup(
+            barra2Q1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+        barra2Q1Layout.setVerticalGroup(
+            barra2Q1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        barra2Q2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout barra2Q2Layout = new javax.swing.GroupLayout(barra2Q2);
+        barra2Q2.setLayout(barra2Q2Layout);
+        barra2Q2Layout.setHorizontalGroup(
+            barra2Q2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+        barra2Q2Layout.setVerticalGroup(
+            barra2Q2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        barra2Q3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout barra2Q3Layout = new javax.swing.GroupLayout(barra2Q3);
+        barra2Q3.setLayout(barra2Q3Layout);
+        barra2Q3Layout.setHorizontalGroup(
+            barra2Q3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+        barra2Q3Layout.setVerticalGroup(
+            barra2Q3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        barra4Q4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout barra4Q4Layout = new javax.swing.GroupLayout(barra4Q4);
+        barra4Q4.setLayout(barra4Q4Layout);
+        barra4Q4Layout.setHorizontalGroup(
+            barra4Q4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+        barra4Q4Layout.setVerticalGroup(
+            barra4Q4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setText("2020");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("2021");
+
+        jTableEvolucion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane4.setViewportView(jTableEvolucion);
+
+        jLabel6.setText("Evolucion");
+
+        btnLeyenda.setText("Leyenda");
+        btnLeyenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLeyendaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                            .addComponent(btnLeyenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(82, 82, 82)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7)
+                                .addGap(85, 85, 85))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(barra1Q1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(barra1Q2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(barra1Q3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(barra1Q4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(barra2Q1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(barra2Q2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(barra2Q3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(barra4Q4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel6)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTituloCatalog, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNumECatalog)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTituloCatalog)
+                    .addComponent(lblNumECatalog))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(barra1Q1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(barra1Q2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(barra1Q3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(barra1Q4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(barra2Q1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(barra2Q2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(barra2Q3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(barra4Q4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel7)
+                    .addComponent(btnLeyenda))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         tbGeneral.addTab("Enfermedades", jPanel3);
 
+        jListEnfermedades.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jListEnfermedades);
 
         jLabel1.setText("Enfermedades");
@@ -300,7 +563,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblNumVacu)))))
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,7 +583,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(lblNumVacu))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         tbGeneral.addTab("Campañas", jPanel1);
@@ -329,11 +592,11 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
+            .addGap(0, 606, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
+            .addGap(0, 345, Short.MAX_VALUE)
         );
 
         tbGeneral.addTab("Vacunas", jPanel4);
@@ -342,11 +605,11 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
+            .addGap(0, 606, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
+            .addGap(0, 345, Short.MAX_VALUE)
         );
 
         tbGeneral.addTab("Previsiones", jPanel5);
@@ -355,7 +618,9 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tbGeneral)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(tbGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,6 +631,12 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLeyendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeyendaActionPerformed
+        // TODO add your handling code here:
+        IU_LeyendaEstadisticas leyenda = new IU_LeyendaEstadisticas(new javax.swing.JFrame(), true);
+        leyenda.setVisible(true);
+    }//GEN-LAST:event_btnLeyendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -410,21 +681,67 @@ public class IU_Estadisticas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel barra1Q1;
+    private javax.swing.JPanel barra1Q2;
+    private javax.swing.JPanel barra1Q3;
+    private javax.swing.JPanel barra1Q4;
+    private javax.swing.JPanel barra2Q1;
+    private javax.swing.JPanel barra2Q2;
+    private javax.swing.JPanel barra2Q3;
+    private javax.swing.JPanel barra4Q4;
+    private javax.swing.JButton btnLeyenda;
+    private javax.swing.JPanel jBarra2023;
+    private javax.swing.JPanel jBarra2024;
+    private javax.swing.JPanel jBarra2025;
+    private javax.swing.JPanel jBarra2026;
+    private javax.swing.JPanel jBarra2027;
+    private javax.swing.JPanel jBarra2028;
+    private javax.swing.JPanel jBarra2029;
+    private javax.swing.JPanel jBarra2030;
+    private javax.swing.JPanel jBarra2031;
+    private javax.swing.JPanel jBarra2032;
+    private javax.swing.JPanel jBarra2036;
+    private javax.swing.JPanel jBarra2037;
+    private javax.swing.JPanel jBarra2038;
+    private javax.swing.JPanel jBarra2039;
+    private javax.swing.JPanel jBarra2040;
+    private javax.swing.JPanel jBarra2041;
+    private javax.swing.JPanel jBarra2042;
+    private javax.swing.JPanel jBarra2043;
+    private javax.swing.JPanel jBarra2044;
+    private javax.swing.JPanel jBarra2045;
+    private javax.swing.JPanel jBarra2046;
+    private javax.swing.JPanel jBarra2047;
+    private javax.swing.JPanel jBarra2048;
+    private javax.swing.JPanel jBarra2049;
+    private javax.swing.JPanel jBarra2050;
+    private javax.swing.JPanel jBarra2051;
+    private javax.swing.JPanel jBarra2052;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JList<String> jListEnfermedades;
+    private javax.swing.JList<String> jListEnfermedades2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable jTableEvolucion;
     private javax.swing.JLabel lblNumAtencion;
     private javax.swing.JLabel lblNumConfinadas;
     private javax.swing.JLabel lblNumCuarentena;
     private javax.swing.JLabel lblNumE;
+    private javax.swing.JLabel lblNumECatalog;
     private javax.swing.JLabel lblNumEnfermas;
     private javax.swing.JLabel lblNumInfor;
     private javax.swing.JLabel lblNumSanas;
@@ -432,6 +749,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
     private javax.swing.JLabel lblNumVacunadas;
     private javax.swing.JLabel lblNumVulnerables;
     private javax.swing.JLabel lblTituloAtenc;
+    private javax.swing.JLabel lblTituloCatalog;
     private javax.swing.JLabel lblTituloConfi;
     private javax.swing.JLabel lblTituloCuarent;
     private javax.swing.JLabel lblTituloEnfermas;
