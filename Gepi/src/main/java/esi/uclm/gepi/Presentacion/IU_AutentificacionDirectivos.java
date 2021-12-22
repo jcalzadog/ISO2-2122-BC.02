@@ -35,8 +35,8 @@ public class IU_AutentificacionDirectivos extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        tfContrasena = new javax.swing.JTextField();
         btnAcceder = new javax.swing.JButton();
+        tfContrasena = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -66,10 +66,11 @@ public class IU_AutentificacionDirectivos extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(81, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
-                    .addComponent(tfContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(tfContrasena, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnAcceder, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(76, 76, 76))
         );
         layout.setVerticalGroup(
@@ -94,7 +95,7 @@ public class IU_AutentificacionDirectivos extends javax.swing.JDialog {
     private void btnAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccederActionPerformed
         String password = tfContrasena.getText();
         
-        if(password.equals("1")){
+        if(password.equals("admin")){
             IU_Estadisticas estadisticas = new IU_Estadisticas(new javax.swing.JFrame(),true);
             this.setVisible(false);
             estadisticas.setVisible(true);  
@@ -151,6 +152,6 @@ public class IU_AutentificacionDirectivos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField tfContrasena;
+    private javax.swing.JPasswordField tfContrasena;
     // End of variables declaration//GEN-END:variables
 }

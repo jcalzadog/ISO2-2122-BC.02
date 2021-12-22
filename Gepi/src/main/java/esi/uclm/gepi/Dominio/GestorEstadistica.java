@@ -123,12 +123,12 @@ public class GestorEstadistica {
         LinkedList<String> numCampaniasEnfermedades = new LinkedList();
 
         try {
-            num = this.agente.select("SELECT COUNT(ID) FROM `Campania` WHERE Tipo='Informativa' AND Nombre='"+enfermedad+"'", 1);
+            num = this.agente.select("SELECT COUNT(ID) FROM `Campania` WHERE Tipo='Informativa' AND Nombre='" + enfermedad + "'", 1);
             tempVector = (java.util.Vector) num.get(0);
             tempObject = tempVector.remove(0);
             numCampaniasEnfermedades.add(String.valueOf(tempObject));
-            
-            num = this.agente.select("SELECT COUNT(ID) FROM `Campania` WHERE Tipo='Vacunacion' AND Nombre='"+enfermedad+"'", 1);
+
+            num = this.agente.select("SELECT COUNT(ID) FROM `Campania` WHERE Tipo='Vacunacion' AND Nombre='" + enfermedad + "'", 1);
             tempVector = (java.util.Vector) num.get(0);
             tempObject = tempVector.remove(0);
             numCampaniasEnfermedades.add(String.valueOf(tempObject));
@@ -139,19 +139,18 @@ public class GestorEstadistica {
 
         return numCampaniasEnfermedades;
     }
-    
-    
+
     public Vector getEvolucionEnfermedad(String Enfermedad) {
         Vector<Object> evolucion = null;
         try {
-            evolucion = this.agente.select("SELECT Fecha,Contagios FROM Evolucion WHERE Enfermedad='"+Enfermedad+"' ORDER By Fecha DESC", 2);
+            evolucion = this.agente.select("SELECT Fecha,Contagios FROM Evolucion WHERE Enfermedad='" + Enfermedad + "' ORDER By Fecha DESC", 2);
 
         } catch (Exception ex) {
             System.out.println(ex);
         }
         return evolucion;
     }
-    
+
     public LinkedList getEvolucionCuatrimestres(String enfermedad) {
 
         Vector<Object> num = null;
@@ -162,43 +161,43 @@ public class GestorEstadistica {
 
         try {
             //PARA 2020
-            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2020-01-01' AND Fecha < '2020-03-30'", 1);
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='" + enfermedad + "' AND Fecha >= '2020-01-01' AND Fecha < '2020-03-30'", 1);
             tempVector = (java.util.Vector) num.get(0);
             tempObject = tempVector.remove(0);
             evolucion.add(String.valueOf(tempObject));
-            
-            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2020-03-30' AND Fecha < '2020-06-30'", 1);
+
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='" + enfermedad + "' AND Fecha >= '2020-03-30' AND Fecha < '2020-06-30'", 1);
             tempVector = (java.util.Vector) num.get(0);
             tempObject = tempVector.remove(0);
             evolucion.add(String.valueOf(tempObject));
-            
-            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2020-06-30' AND Fecha < '2020-09-30'", 1);
+
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='" + enfermedad + "' AND Fecha >= '2020-06-30' AND Fecha < '2020-09-30'", 1);
             tempVector = (java.util.Vector) num.get(0);
             tempObject = tempVector.remove(0);
             evolucion.add(String.valueOf(tempObject));
-            
-            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2020-09-01' AND Fecha < '2020-12-30'", 1);
+
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='" + enfermedad + "' AND Fecha >= '2020-09-01' AND Fecha < '2020-12-30'", 1);
             tempVector = (java.util.Vector) num.get(0);
             tempObject = tempVector.remove(0);
             evolucion.add(String.valueOf(tempObject));
-            
+
             //PARA 2021
-            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2021-01-01' AND Fecha < '2021-03-30'", 1);
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='" + enfermedad + "' AND Fecha >= '2021-01-01' AND Fecha < '2021-03-30'", 1);
             tempVector = (java.util.Vector) num.get(0);
             tempObject = tempVector.remove(0);
             evolucion.add(String.valueOf(tempObject));
-            
-            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2021-03-30' AND Fecha < '2021-06-30'", 1);
+
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='" + enfermedad + "' AND Fecha >= '2021-03-30' AND Fecha < '2021-06-30'", 1);
             tempVector = (java.util.Vector) num.get(0);
             tempObject = tempVector.remove(0);
             evolucion.add(String.valueOf(tempObject));
-            
-            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2021-06-30' AND Fecha < '2021-09-30'", 1);
+
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='" + enfermedad + "' AND Fecha >= '2021-06-30' AND Fecha < '2021-09-30'", 1);
             tempVector = (java.util.Vector) num.get(0);
             tempObject = tempVector.remove(0);
             evolucion.add(String.valueOf(tempObject));
-            
-            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='"+enfermedad+"' AND Fecha >= '2021-09-01' AND Fecha < '2021-12-30'", 1);
+
+            num = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='" + enfermedad + "' AND Fecha >= '2021-09-01' AND Fecha < '2021-12-30'", 1);
             tempVector = (java.util.Vector) num.get(0);
             tempObject = tempVector.remove(0);
             evolucion.add(String.valueOf(tempObject));
@@ -209,7 +208,7 @@ public class GestorEstadistica {
 
         return evolucion;
     }
-    
+
     public Vector getVacunasEnfermedades() {
         Vector<Object> evolucion = null;
         try {
@@ -220,7 +219,7 @@ public class GestorEstadistica {
         }
         return evolucion;
     }
-    
+
     public Vector getAprovisionamientoVacunas() {
         Vector<Object> evolucion = null;
         try {
@@ -231,5 +230,40 @@ public class GestorEstadistica {
         }
         return evolucion;
     }
-    
+
+    public boolean getPrevision(String enfermedad, String tiempo) {
+        //Cogiendo datos de referencia de las últimas 3 semanas o los últimos 3 meses
+        boolean posibleOla = false;
+
+        Vector<Object> temp = null;
+        java.util.Vector tempVector;
+        Object tempObject;
+
+        try {
+            if (tiempo.equals("Semana")) {
+                temp = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='" + enfermedad + "' AND Fecha between date_sub(now(),INTERVAL 3 WEEK) and now()", 1);
+
+                tempVector = (java.util.Vector) temp.get(0);
+                tempObject = tempVector.remove(0);
+                
+                if (Integer.parseInt(String.valueOf(tempObject)) > 500) {
+                    posibleOla = true;
+                }
+            } else if (tiempo.equals("Mes")) {
+                temp = this.agente.select("SELECT COALESCE(SUM(Contagios),0) FROM `Evolucion` WHERE Enfermedad='" + enfermedad + "' AND Fecha between date_sub(now(),INTERVAL 3 MONTH) and now()", 1);
+                tempVector = (java.util.Vector) temp.get(0);
+                tempObject = tempVector.remove(0);
+                
+                if (Integer.parseInt(String.valueOf(tempObject)) > 1000) {
+                    posibleOla = true;
+                }
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
+        return posibleOla;
+    }
+
 }

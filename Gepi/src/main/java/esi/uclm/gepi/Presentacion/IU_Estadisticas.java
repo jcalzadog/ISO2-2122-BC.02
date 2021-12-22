@@ -6,6 +6,8 @@ package esi.uclm.gepi.Presentacion;
 
 import esi.uclm.gepi.Dominio.GestorEstadistica;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.LinkedList;
@@ -169,6 +171,42 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         double relacion = Double.parseDouble(String.valueOf(numEstadosPersona.get(6))) / Double.parseDouble(String.valueOf(numEstadosPersona.get(0)));
         NumberFormat format = new DecimalFormat("#.###");
         lblRelacion.setText(String.valueOf(format.format(relacion)));
+
+        cmbEnfermedades.removeAllItems();//limpia el combobox
+
+        //Se recorre con un for la lista de conductores
+        for (int i = 0; i < enfermedadesCatalogadas.size(); i++) {
+            cmbEnfermedades.addItem(enfermedadesCatalogadas.get(i));
+        }
+
+        cmbEnfermedades.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                
+                boolean prevision = gestorE.getPrevision(String.valueOf(cmbEnfermedades.getSelectedItem()), String.valueOf(cmbIntervalos.getSelectedItem()));
+                if (prevision==true){
+                    resultadoPrevision.setText("SI");
+                    resultadoPrevision.setForeground(Color.RED);
+                } else {
+                    resultadoPrevision.setText("NO");
+                    resultadoPrevision.setForeground(Color.GREEN);
+                }
+            }
+        });
+        cmbIntervalos.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                boolean prevision = gestorE.getPrevision(String.valueOf(cmbEnfermedades.getSelectedItem()), String.valueOf(cmbIntervalos.getSelectedItem()));
+                if (prevision==true){
+                    resultadoPrevision.setText("SI");
+                    resultadoPrevision.setForeground(Color.RED);
+                } else {
+                    resultadoPrevision.setText("NO");
+                    resultadoPrevision.setForeground(Color.GREEN);
+                }
+            }
+        });
+        
+        cmbEnfermedades.setSelectedIndex(0);
+        
     }
 
     /**
@@ -265,7 +303,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         tbGeneral.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        lblTituloEnfermedades.setText("NÃºmero de Enfermedades Totales:");
+        lblTituloEnfermedades.setText("Número de Enfermedades Totales:");
 
         lblNumE.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblNumE.setForeground(new java.awt.Color(204, 0, 0));
@@ -285,7 +323,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         lblNumSanas.setForeground(new java.awt.Color(0, 204, 0));
         lblNumSanas.setText("00000");
 
-        lblTituloAtenc.setText("Personas En AtenciÃ³n: ");
+        lblTituloAtenc.setText("Personas En Atención: ");
 
         lblTituloConfi.setText("Personas Confinadas: ");
 
@@ -407,9 +445,9 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         lblTituloEnfermedades.getAccessibleContext().setAccessibleName("lblNumEnfermedades");
 
-        tbGeneral.addTab("EstadÃ­sticas Generales", jPanel2);
+        tbGeneral.addTab("Estadísticas Generales", jPanel2);
 
-        lblTituloCatalog.setText("NÃºmero de Enfermedades Catalogadas:");
+        lblTituloCatalog.setText("Número de Enfermedades Catalogadas:");
 
         lblNumECatalog.setText("0");
 
@@ -657,7 +695,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblNumECatalog)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -700,9 +738,9 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         jLabel1.setText("Enfermedades");
 
-        jLabel2.setText("NÃºmero de CampaÃ±as Informativas:");
+        jLabel2.setText("Número de Campañas Informativas:");
 
-        jLabel3.setText("NÃºmero de CampaÃ±as Vacunativas:");
+        jLabel3.setText("Número de Campañas Vacunativas:");
 
         lblNumInfor.setText("0");
 
@@ -751,7 +789,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        tbGeneral.addTab("CampaÃ±as", jPanel1);
+        tbGeneral.addTab("Campañas", jPanel1);
 
         jLabel16.setText("Vacunas de Enfermedades");
 
@@ -816,7 +854,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         tbGeneral.addTab("Vacunas", jPanel4);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel18.setText("RelaciÃ³n Entre Personas Vacunadas y Enfermas");
+        jLabel18.setText("Relación Entre Personas Vacunadas y Enfermas");
 
         jLabel19.setText("Vacunadas:");
 
@@ -827,7 +865,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel22.setText("PrevisiÃ³n de Olas de Contagios");
+        jLabel22.setText("Previsión de Olas de Contagios");
 
         jLabel26.setText("Selecciona Enfermedad y Intervalo de Tiempo");
 
@@ -837,7 +875,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
 
         jLabel28.setText("Intervalo:");
 
-        cmbIntervalos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semana", "Mes", "AÃ±o" }));
+        cmbIntervalos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semana", "Mes" }));
 
         jPanel9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -908,7 +946,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
                     .addComponent(jLabel28)
                     .addComponent(cmbIntervalos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
@@ -1041,33 +1079,6 @@ public class IU_Estadisticas extends javax.swing.JDialog {
     private javax.swing.JButton btnLeyenda;
     private javax.swing.JComboBox<String> cmbEnfermedades;
     private javax.swing.JComboBox<String> cmbIntervalos;
-    private javax.swing.JPanel jBarra2023;
-    private javax.swing.JPanel jBarra2024;
-    private javax.swing.JPanel jBarra2025;
-    private javax.swing.JPanel jBarra2026;
-    private javax.swing.JPanel jBarra2027;
-    private javax.swing.JPanel jBarra2028;
-    private javax.swing.JPanel jBarra2029;
-    private javax.swing.JPanel jBarra2030;
-    private javax.swing.JPanel jBarra2031;
-    private javax.swing.JPanel jBarra2032;
-    private javax.swing.JPanel jBarra2036;
-    private javax.swing.JPanel jBarra2037;
-    private javax.swing.JPanel jBarra2038;
-    private javax.swing.JPanel jBarra2039;
-    private javax.swing.JPanel jBarra2040;
-    private javax.swing.JPanel jBarra2041;
-    private javax.swing.JPanel jBarra2042;
-    private javax.swing.JPanel jBarra2043;
-    private javax.swing.JPanel jBarra2044;
-    private javax.swing.JPanel jBarra2045;
-    private javax.swing.JPanel jBarra2046;
-    private javax.swing.JPanel jBarra2047;
-    private javax.swing.JPanel jBarra2048;
-    private javax.swing.JPanel jBarra2049;
-    private javax.swing.JPanel jBarra2050;
-    private javax.swing.JPanel jBarra2051;
-    private javax.swing.JPanel jBarra2052;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1102,7 +1113,6 @@ public class IU_Estadisticas extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
