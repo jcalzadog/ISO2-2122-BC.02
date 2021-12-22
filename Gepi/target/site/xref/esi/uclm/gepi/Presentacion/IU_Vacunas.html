@@ -511,47 +511,47 @@
 <a class="jxr_linenumber" name="L503" href="#L503">503</a>         }
 <a class="jxr_linenumber" name="L504" href="#L504">504</a>     }<em class="jxr_comment">//GEN-LAST:event_enviarSMSActionPerformed</em>
 <a class="jxr_linenumber" name="L505" href="#L505">505</a> 
-<a class="jxr_linenumber" name="L506" href="#L506">506</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L507" href="#L507">507</a> <em class="jxr_javadoccomment">     * @param args the command line arguments</em>
-<a class="jxr_linenumber" name="L508" href="#L508">508</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L509" href="#L509">509</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String args[]) {
-<a class="jxr_linenumber" name="L510" href="#L510">510</a>         <em class="jxr_comment">/* Set the Nimbus look and feel */</em>
-<a class="jxr_linenumber" name="L511" href="#L511">511</a>         <em class="jxr_comment">//&lt;editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) "&gt;</em>
-<a class="jxr_linenumber" name="L512" href="#L512">512</a>         <em class="jxr_comment">/* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.</em>
-<a class="jxr_linenumber" name="L513" href="#L513">513</a> <em class="jxr_comment">         * For details see <a href="http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html " target="alexandria_uri">http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html </a></em>
-<a class="jxr_linenumber" name="L514" href="#L514">514</a> <em class="jxr_comment">         */</em>
-<a class="jxr_linenumber" name="L515" href="#L515">515</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L516" href="#L516">516</a>             <strong class="jxr_keyword">for</strong> (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-<a class="jxr_linenumber" name="L517" href="#L517">517</a>                 <strong class="jxr_keyword">if</strong> (<span class="jxr_string">"Windows"</span>.equals(info.getName())) {
-<a class="jxr_linenumber" name="L518" href="#L518">518</a>                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
-<a class="jxr_linenumber" name="L519" href="#L519">519</a>                     <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L520" href="#L520">520</a>                 }
-<a class="jxr_linenumber" name="L521" href="#L521">521</a>             }
-<a class="jxr_linenumber" name="L522" href="#L522">522</a>         } <strong class="jxr_keyword">catch</strong> (ClassNotFoundException ex) {
-<a class="jxr_linenumber" name="L523" href="#L523">523</a>             java.util.logging.Logger.getLogger(IU_Vacunas.<strong class="jxr_keyword">class</strong>.getName()).log(java.util.logging.Level.SEVERE, <strong class="jxr_keyword">null</strong>, ex);
-<a class="jxr_linenumber" name="L524" href="#L524">524</a>         } <strong class="jxr_keyword">catch</strong> (InstantiationException ex) {
-<a class="jxr_linenumber" name="L525" href="#L525">525</a>             java.util.logging.Logger.getLogger(IU_Vacunas.<strong class="jxr_keyword">class</strong>.getName()).log(java.util.logging.Level.SEVERE, <strong class="jxr_keyword">null</strong>, ex);
-<a class="jxr_linenumber" name="L526" href="#L526">526</a>         } <strong class="jxr_keyword">catch</strong> (IllegalAccessException ex) {
-<a class="jxr_linenumber" name="L527" href="#L527">527</a>             java.util.logging.Logger.getLogger(IU_Vacunas.<strong class="jxr_keyword">class</strong>.getName()).log(java.util.logging.Level.SEVERE, <strong class="jxr_keyword">null</strong>, ex);
-<a class="jxr_linenumber" name="L528" href="#L528">528</a>         } <strong class="jxr_keyword">catch</strong> (javax.swing.UnsupportedLookAndFeelException ex) {
-<a class="jxr_linenumber" name="L529" href="#L529">529</a>             java.util.logging.Logger.getLogger(IU_Vacunas.<strong class="jxr_keyword">class</strong>.getName()).log(java.util.logging.Level.SEVERE, <strong class="jxr_keyword">null</strong>, ex);
-<a class="jxr_linenumber" name="L530" href="#L530">530</a>         }
-<a class="jxr_linenumber" name="L531" href="#L531">531</a>         <em class="jxr_comment">//&lt;/editor-fold&gt;</em>
-<a class="jxr_linenumber" name="L532" href="#L532">532</a> 
-<a class="jxr_linenumber" name="L533" href="#L533">533</a>         <em class="jxr_comment">/* Create and display the dialog */</em>
-<a class="jxr_linenumber" name="L534" href="#L534">534</a>         java.awt.EventQueue.invokeLater(<strong class="jxr_keyword">new</strong> Runnable() {
-<a class="jxr_linenumber" name="L535" href="#L535">535</a>             <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> run() {
-<a class="jxr_linenumber" name="L536" href="#L536">536</a>                 <a name="IU_Vacunas" href="../../../../esi/uclm/gepi/Presentacion/IU_Vacunas.html#IU_Vacunas">IU_Vacunas</a> dialog = <strong class="jxr_keyword">new</strong> <a name="IU_Vacunas" href="../../../../esi/uclm/gepi/Presentacion/IU_Vacunas.html#IU_Vacunas">IU_Vacunas</a>(<strong class="jxr_keyword">new</strong> javax.swing.JFrame(), <strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L537" href="#L537">537</a>                 dialog.addWindowListener(<strong class="jxr_keyword">new</strong> java.awt.event.WindowAdapter() {
-<a class="jxr_linenumber" name="L538" href="#L538">538</a>                     @Override
-<a class="jxr_linenumber" name="L539" href="#L539">539</a>                     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> windowClosing(java.awt.event.WindowEvent e) {
-<a class="jxr_linenumber" name="L540" href="#L540">540</a>                         System.exit(0);
-<a class="jxr_linenumber" name="L541" href="#L541">541</a>                     }
-<a class="jxr_linenumber" name="L542" href="#L542">542</a>                 });
-<a class="jxr_linenumber" name="L543" href="#L543">543</a>                 dialog.setVisible(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L544" href="#L544">544</a>             }
-<a class="jxr_linenumber" name="L545" href="#L545">545</a>         });
-<a class="jxr_linenumber" name="L546" href="#L546">546</a>     }
+<a class="jxr_linenumber" name="L506" href="#L506">506</a> <em class="jxr_comment">//    /**</em>
+<a class="jxr_linenumber" name="L507" href="#L507">507</a> <em class="jxr_comment">//     * @param args the command line arguments</em>
+<a class="jxr_linenumber" name="L508" href="#L508">508</a> <em class="jxr_comment">//     */</em>
+<a class="jxr_linenumber" name="L509" href="#L509">509</a> <em class="jxr_comment">//    public static void main(String args[]) {</em>
+<a class="jxr_linenumber" name="L510" href="#L510">510</a> <em class="jxr_comment">//        /* Set the Nimbus look and feel */</em>
+<a class="jxr_linenumber" name="L511" href="#L511">511</a> <em class="jxr_comment">//        //&lt;editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) "&gt;</em>
+<a class="jxr_linenumber" name="L512" href="#L512">512</a> <em class="jxr_comment">//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.</em>
+<a class="jxr_linenumber" name="L513" href="#L513">513</a> <em class="jxr_comment">//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html </em>
+<a class="jxr_linenumber" name="L514" href="#L514">514</a> <em class="jxr_comment">//         */</em>
+<a class="jxr_linenumber" name="L515" href="#L515">515</a> <em class="jxr_comment">//        try {</em>
+<a class="jxr_linenumber" name="L516" href="#L516">516</a> <em class="jxr_comment">//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</em>
+<a class="jxr_linenumber" name="L517" href="#L517">517</a> <em class="jxr_comment">//                if ("Windows".equals(info.getName())) {</em>
+<a class="jxr_linenumber" name="L518" href="#L518">518</a> <em class="jxr_comment">//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</em>
+<a class="jxr_linenumber" name="L519" href="#L519">519</a> <em class="jxr_comment">//                    break;</em>
+<a class="jxr_linenumber" name="L520" href="#L520">520</a> <em class="jxr_comment">//                }</em>
+<a class="jxr_linenumber" name="L521" href="#L521">521</a> <em class="jxr_comment">//            }</em>
+<a class="jxr_linenumber" name="L522" href="#L522">522</a> <em class="jxr_comment">//        } catch (ClassNotFoundException ex) {</em>
+<a class="jxr_linenumber" name="L523" href="#L523">523</a> <em class="jxr_comment">//            java.util.logging.Logger.getLogger(IU_Vacunas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</em>
+<a class="jxr_linenumber" name="L524" href="#L524">524</a> <em class="jxr_comment">//        } catch (InstantiationException ex) {</em>
+<a class="jxr_linenumber" name="L525" href="#L525">525</a> <em class="jxr_comment">//            java.util.logging.Logger.getLogger(IU_Vacunas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</em>
+<a class="jxr_linenumber" name="L526" href="#L526">526</a> <em class="jxr_comment">//        } catch (IllegalAccessException ex) {</em>
+<a class="jxr_linenumber" name="L527" href="#L527">527</a> <em class="jxr_comment">//            java.util.logging.Logger.getLogger(IU_Vacunas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</em>
+<a class="jxr_linenumber" name="L528" href="#L528">528</a> <em class="jxr_comment">//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</em>
+<a class="jxr_linenumber" name="L529" href="#L529">529</a> <em class="jxr_comment">//            java.util.logging.Logger.getLogger(IU_Vacunas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</em>
+<a class="jxr_linenumber" name="L530" href="#L530">530</a> <em class="jxr_comment">//        }</em>
+<a class="jxr_linenumber" name="L531" href="#L531">531</a> <em class="jxr_comment">//        //&lt;/editor-fold&gt;</em>
+<a class="jxr_linenumber" name="L532" href="#L532">532</a> <em class="jxr_comment">//</em>
+<a class="jxr_linenumber" name="L533" href="#L533">533</a> <em class="jxr_comment">//        /* Create and display the dialog */</em>
+<a class="jxr_linenumber" name="L534" href="#L534">534</a> <em class="jxr_comment">//        java.awt.EventQueue.invokeLater(new Runnable() {</em>
+<a class="jxr_linenumber" name="L535" href="#L535">535</a> <em class="jxr_comment">//            public void run() {</em>
+<a class="jxr_linenumber" name="L536" href="#L536">536</a> <em class="jxr_comment">//                IU_Vacunas dialog = new IU_Vacunas(new javax.swing.JFrame(), true);</em>
+<a class="jxr_linenumber" name="L537" href="#L537">537</a> <em class="jxr_comment">//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {</em>
+<a class="jxr_linenumber" name="L538" href="#L538">538</a> <em class="jxr_comment">//                    @Override</em>
+<a class="jxr_linenumber" name="L539" href="#L539">539</a> <em class="jxr_comment">//                    public void windowClosing(java.awt.event.WindowEvent e) {</em>
+<a class="jxr_linenumber" name="L540" href="#L540">540</a> <em class="jxr_comment">//                        System.exit(0);</em>
+<a class="jxr_linenumber" name="L541" href="#L541">541</a> <em class="jxr_comment">//                    }</em>
+<a class="jxr_linenumber" name="L542" href="#L542">542</a> <em class="jxr_comment">//                });</em>
+<a class="jxr_linenumber" name="L543" href="#L543">543</a> <em class="jxr_comment">//                dialog.setVisible(true);</em>
+<a class="jxr_linenumber" name="L544" href="#L544">544</a> <em class="jxr_comment">//            }</em>
+<a class="jxr_linenumber" name="L545" href="#L545">545</a> <em class="jxr_comment">//        });</em>
+<a class="jxr_linenumber" name="L546" href="#L546">546</a> <em class="jxr_comment">//    }</em>
 <a class="jxr_linenumber" name="L547" href="#L547">547</a>     
 <a class="jxr_linenumber" name="L548" href="#L548">548</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> rellenarTabla(){
 <a class="jxr_linenumber" name="L549" href="#L549">549</a>         tablaPersonas.getTableHeader().setReorderingAllowed(false);

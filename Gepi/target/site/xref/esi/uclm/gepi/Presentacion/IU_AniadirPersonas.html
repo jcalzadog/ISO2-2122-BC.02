@@ -36,7 +36,7 @@
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>          <strong class="jxr_keyword">super</strong>(parent, modal);
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>          initComponents();
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>          gestorPersona = <strong class="jxr_keyword">new</strong> <a name="GestorPersona" href="../../../../esi/uclm/gepi/Dominio/GestorPersona.html#GestorPersona">GestorPersona</a>();
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>          ImageIcon imgIconApp = <strong class="jxr_keyword">new</strong> ImageIcon(<span class="jxr_string">"src/main/resources/Imagenes/icono.png"</span>);
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>          ImageIcon imgIconApp = <strong class="jxr_keyword">new</strong> ImageIcon(<span class="jxr_string">"src/resources/Imagenes/icono.png"</span>);
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>          <strong class="jxr_keyword">this</strong>.setIconImage(imgIconApp.getImage());
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>          <strong class="jxr_keyword">this</strong>.setTitle(<span class="jxr_string">"Añadir Persona"</span>);
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>          <strong class="jxr_keyword">this</strong>.setResizable(false);
@@ -395,47 +395,47 @@
 <a class="jxr_linenumber" name="L387" href="#L387">387</a>         }
 <a class="jxr_linenumber" name="L388" href="#L388">388</a>     }<em class="jxr_comment">//GEN-LAST:event_txtTelefonoKeyReleased</em>
 <a class="jxr_linenumber" name="L389" href="#L389">389</a> 
-<a class="jxr_linenumber" name="L390" href="#L390">390</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L391" href="#L391">391</a> <em class="jxr_javadoccomment">     * @param args the command line arguments</em>
-<a class="jxr_linenumber" name="L392" href="#L392">392</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L393" href="#L393">393</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String args[]) {
-<a class="jxr_linenumber" name="L394" href="#L394">394</a>         <em class="jxr_comment">/* Set the Nimbus look and feel */</em>
-<a class="jxr_linenumber" name="L395" href="#L395">395</a>         <em class="jxr_comment">//&lt;editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) "&gt;</em>
-<a class="jxr_linenumber" name="L396" href="#L396">396</a>         <em class="jxr_comment">/* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.</em>
-<a class="jxr_linenumber" name="L397" href="#L397">397</a> <em class="jxr_comment">         * For details see <a href="http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html " target="alexandria_uri">http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html </a></em>
-<a class="jxr_linenumber" name="L398" href="#L398">398</a> <em class="jxr_comment">         */</em>
-<a class="jxr_linenumber" name="L399" href="#L399">399</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L400" href="#L400">400</a>             <strong class="jxr_keyword">for</strong> (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-<a class="jxr_linenumber" name="L401" href="#L401">401</a>                 <strong class="jxr_keyword">if</strong> (<span class="jxr_string">"Nimbus"</span>.equals(info.getName())) {
-<a class="jxr_linenumber" name="L402" href="#L402">402</a>                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
-<a class="jxr_linenumber" name="L403" href="#L403">403</a>                     <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L404" href="#L404">404</a>                 }
-<a class="jxr_linenumber" name="L405" href="#L405">405</a>             }
-<a class="jxr_linenumber" name="L406" href="#L406">406</a>         } <strong class="jxr_keyword">catch</strong> (ClassNotFoundException ex) {
-<a class="jxr_linenumber" name="L407" href="#L407">407</a>             java.util.logging.Logger.getLogger(IU_AniadirPersonas.<strong class="jxr_keyword">class</strong>.getName()).log(java.util.logging.Level.SEVERE, <strong class="jxr_keyword">null</strong>, ex);
-<a class="jxr_linenumber" name="L408" href="#L408">408</a>         } <strong class="jxr_keyword">catch</strong> (InstantiationException ex) {
-<a class="jxr_linenumber" name="L409" href="#L409">409</a>             java.util.logging.Logger.getLogger(IU_AniadirPersonas.<strong class="jxr_keyword">class</strong>.getName()).log(java.util.logging.Level.SEVERE, <strong class="jxr_keyword">null</strong>, ex);
-<a class="jxr_linenumber" name="L410" href="#L410">410</a>         } <strong class="jxr_keyword">catch</strong> (IllegalAccessException ex) {
-<a class="jxr_linenumber" name="L411" href="#L411">411</a>             java.util.logging.Logger.getLogger(IU_AniadirPersonas.<strong class="jxr_keyword">class</strong>.getName()).log(java.util.logging.Level.SEVERE, <strong class="jxr_keyword">null</strong>, ex);
-<a class="jxr_linenumber" name="L412" href="#L412">412</a>         } <strong class="jxr_keyword">catch</strong> (javax.swing.UnsupportedLookAndFeelException ex) {
-<a class="jxr_linenumber" name="L413" href="#L413">413</a>             java.util.logging.Logger.getLogger(IU_AniadirPersonas.<strong class="jxr_keyword">class</strong>.getName()).log(java.util.logging.Level.SEVERE, <strong class="jxr_keyword">null</strong>, ex);
-<a class="jxr_linenumber" name="L414" href="#L414">414</a>         }
-<a class="jxr_linenumber" name="L415" href="#L415">415</a>         <em class="jxr_comment">//&lt;/editor-fold&gt;</em>
-<a class="jxr_linenumber" name="L416" href="#L416">416</a> 
-<a class="jxr_linenumber" name="L417" href="#L417">417</a>         <em class="jxr_comment">/* Create and display the dialog */</em>
-<a class="jxr_linenumber" name="L418" href="#L418">418</a>         java.awt.EventQueue.invokeLater(<strong class="jxr_keyword">new</strong> Runnable() {
-<a class="jxr_linenumber" name="L419" href="#L419">419</a>             <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> run() {
-<a class="jxr_linenumber" name="L420" href="#L420">420</a>                 <a name="IU_AniadirPersonas" href="../../../../esi/uclm/gepi/Presentacion/IU_AniadirPersonas.html#IU_AniadirPersonas">IU_AniadirPersonas</a> dialog = <strong class="jxr_keyword">new</strong> <a name="IU_AniadirPersonas" href="../../../../esi/uclm/gepi/Presentacion/IU_AniadirPersonas.html#IU_AniadirPersonas">IU_AniadirPersonas</a>(<strong class="jxr_keyword">new</strong> javax.swing.JFrame(), <strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L421" href="#L421">421</a>                 dialog.addWindowListener(<strong class="jxr_keyword">new</strong> java.awt.event.WindowAdapter() {
-<a class="jxr_linenumber" name="L422" href="#L422">422</a>                     @Override
-<a class="jxr_linenumber" name="L423" href="#L423">423</a>                     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> windowClosing(java.awt.event.WindowEvent e) {
-<a class="jxr_linenumber" name="L424" href="#L424">424</a>                         System.exit(0);
-<a class="jxr_linenumber" name="L425" href="#L425">425</a>                     }
-<a class="jxr_linenumber" name="L426" href="#L426">426</a>                 });
-<a class="jxr_linenumber" name="L427" href="#L427">427</a>                 dialog.setVisible(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L428" href="#L428">428</a>             }
-<a class="jxr_linenumber" name="L429" href="#L429">429</a>         });
-<a class="jxr_linenumber" name="L430" href="#L430">430</a>     }
+<a class="jxr_linenumber" name="L390" href="#L390">390</a> <em class="jxr_comment">///**</em>
+<a class="jxr_linenumber" name="L391" href="#L391">391</a> <em class="jxr_comment">// * @param args the command line arguments</em>
+<a class="jxr_linenumber" name="L392" href="#L392">392</a> <em class="jxr_comment">// */</em>
+<a class="jxr_linenumber" name="L393" href="#L393">393</a> <em class="jxr_comment">//    public static void main(String args[]) {</em>
+<a class="jxr_linenumber" name="L394" href="#L394">394</a> <em class="jxr_comment">//        /* Set the Nimbus look and feel */</em>
+<a class="jxr_linenumber" name="L395" href="#L395">395</a> <em class="jxr_comment">//        //&lt;editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) "&gt;</em>
+<a class="jxr_linenumber" name="L396" href="#L396">396</a> <em class="jxr_comment">//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.</em>
+<a class="jxr_linenumber" name="L397" href="#L397">397</a> <em class="jxr_comment">//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html </em>
+<a class="jxr_linenumber" name="L398" href="#L398">398</a> <em class="jxr_comment">//         */</em>
+<a class="jxr_linenumber" name="L399" href="#L399">399</a> <em class="jxr_comment">//        try {</em>
+<a class="jxr_linenumber" name="L400" href="#L400">400</a> <em class="jxr_comment">//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</em>
+<a class="jxr_linenumber" name="L401" href="#L401">401</a> <em class="jxr_comment">//                if ("Nimbus".equals(info.getName())) {</em>
+<a class="jxr_linenumber" name="L402" href="#L402">402</a> <em class="jxr_comment">//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</em>
+<a class="jxr_linenumber" name="L403" href="#L403">403</a> <em class="jxr_comment">//                    break;</em>
+<a class="jxr_linenumber" name="L404" href="#L404">404</a> <em class="jxr_comment">//                }</em>
+<a class="jxr_linenumber" name="L405" href="#L405">405</a> <em class="jxr_comment">//            }</em>
+<a class="jxr_linenumber" name="L406" href="#L406">406</a> <em class="jxr_comment">//        } catch (ClassNotFoundException ex) {</em>
+<a class="jxr_linenumber" name="L407" href="#L407">407</a> <em class="jxr_comment">//            java.util.logging.Logger.getLogger(IU_AniadirPersonas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</em>
+<a class="jxr_linenumber" name="L408" href="#L408">408</a> <em class="jxr_comment">//        } catch (InstantiationException ex) {</em>
+<a class="jxr_linenumber" name="L409" href="#L409">409</a> <em class="jxr_comment">//            java.util.logging.Logger.getLogger(IU_AniadirPersonas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</em>
+<a class="jxr_linenumber" name="L410" href="#L410">410</a> <em class="jxr_comment">//        } catch (IllegalAccessException ex) {</em>
+<a class="jxr_linenumber" name="L411" href="#L411">411</a> <em class="jxr_comment">//            java.util.logging.Logger.getLogger(IU_AniadirPersonas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</em>
+<a class="jxr_linenumber" name="L412" href="#L412">412</a> <em class="jxr_comment">//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</em>
+<a class="jxr_linenumber" name="L413" href="#L413">413</a> <em class="jxr_comment">//            java.util.logging.Logger.getLogger(IU_AniadirPersonas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</em>
+<a class="jxr_linenumber" name="L414" href="#L414">414</a> <em class="jxr_comment">//        }</em>
+<a class="jxr_linenumber" name="L415" href="#L415">415</a> <em class="jxr_comment">//        //&lt;/editor-fold&gt;</em>
+<a class="jxr_linenumber" name="L416" href="#L416">416</a> <em class="jxr_comment">//</em>
+<a class="jxr_linenumber" name="L417" href="#L417">417</a> <em class="jxr_comment">//        /* Create and display the dialog */</em>
+<a class="jxr_linenumber" name="L418" href="#L418">418</a> <em class="jxr_comment">//        java.awt.EventQueue.invokeLater(new Runnable() {</em>
+<a class="jxr_linenumber" name="L419" href="#L419">419</a> <em class="jxr_comment">//            public void run() {</em>
+<a class="jxr_linenumber" name="L420" href="#L420">420</a> <em class="jxr_comment">//                IU_AniadirPersonas dialog = new IU_AniadirPersonas(new javax.swing.JFrame(), true);</em>
+<a class="jxr_linenumber" name="L421" href="#L421">421</a> <em class="jxr_comment">//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {</em>
+<a class="jxr_linenumber" name="L422" href="#L422">422</a> <em class="jxr_comment">//                    @Override</em>
+<a class="jxr_linenumber" name="L423" href="#L423">423</a> <em class="jxr_comment">//                    public void windowClosing(java.awt.event.WindowEvent e) {</em>
+<a class="jxr_linenumber" name="L424" href="#L424">424</a> <em class="jxr_comment">//                        System.exit(0);</em>
+<a class="jxr_linenumber" name="L425" href="#L425">425</a> <em class="jxr_comment">//                    }</em>
+<a class="jxr_linenumber" name="L426" href="#L426">426</a> <em class="jxr_comment">//                });</em>
+<a class="jxr_linenumber" name="L427" href="#L427">427</a> <em class="jxr_comment">//                dialog.setVisible(true);</em>
+<a class="jxr_linenumber" name="L428" href="#L428">428</a> <em class="jxr_comment">//            }</em>
+<a class="jxr_linenumber" name="L429" href="#L429">429</a> <em class="jxr_comment">//        });</em>
+<a class="jxr_linenumber" name="L430" href="#L430">430</a> <em class="jxr_comment">//    }</em>
 <a class="jxr_linenumber" name="L431" href="#L431">431</a> 
 <a class="jxr_linenumber" name="L432" href="#L432">432</a>     <em class="jxr_comment">// Variables declaration - do not modify//GEN-BEGIN:variables</em>
 <a class="jxr_linenumber" name="L433" href="#L433">433</a>     <strong class="jxr_keyword">private</strong> javax.swing.ButtonGroup btnGroupAtencion;

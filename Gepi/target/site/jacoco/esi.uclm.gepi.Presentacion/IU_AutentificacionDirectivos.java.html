@@ -35,8 +35,8 @@ public class IU_AutentificacionDirectivos extends javax.swing.JDialog {
 <span class="nc" id="L35">        jLabel1 = new javax.swing.JLabel();</span>
 <span class="nc" id="L36">        jLabel2 = new javax.swing.JLabel();</span>
 <span class="nc" id="L37">        jLabel3 = new javax.swing.JLabel();</span>
-<span class="nc" id="L38">        tfContrasena = new javax.swing.JTextField();</span>
-<span class="nc" id="L39">        btnAcceder = new javax.swing.JButton();</span>
+<span class="nc" id="L38">        btnAcceder = new javax.swing.JButton();</span>
+<span class="nc" id="L39">        tfContrasena = new javax.swing.JPasswordField();</span>
 
 <span class="nc" id="L41">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
 
@@ -66,92 +66,93 @@ public class IU_AutentificacionDirectivos extends javax.swing.JDialog {
 <span class="nc" id="L66">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
 <span class="nc" id="L67">                .addContainerGap(81, Short.MAX_VALUE)</span>
 <span class="nc" id="L68">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L69">                    .addComponent(btnAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L70">                    .addComponent(jLabel3)</span>
-<span class="nc" id="L71">                    .addComponent(jLabel2)</span>
-<span class="nc" id="L72">                    .addComponent(tfContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L73">                .addGap(76, 76, 76))</span>
+<span class="nc" id="L69">                    .addComponent(jLabel3)</span>
+<span class="nc" id="L70">                    .addComponent(jLabel2)</span>
+<span class="nc" id="L71">                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)</span>
+<span class="nc" id="L72">                        .addComponent(tfContrasena, javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L73">                        .addComponent(btnAcceder, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))</span>
+<span class="nc" id="L74">                .addGap(76, 76, 76))</span>
         );
-<span class="nc" id="L75">        layout.setVerticalGroup(</span>
-<span class="nc" id="L76">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L77">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L78">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L79">                .addComponent(jLabel1)</span>
-<span class="nc" id="L80">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
-<span class="nc" id="L81">                .addComponent(jLabel2)</span>
-<span class="nc" id="L82">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L83">                .addComponent(jLabel3)</span>
-<span class="nc" id="L84">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
-<span class="nc" id="L85">                .addComponent(tfContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L86">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L87">                .addComponent(btnAcceder)</span>
-<span class="nc" id="L88">                .addContainerGap(54, Short.MAX_VALUE))</span>
+<span class="nc" id="L76">        layout.setVerticalGroup(</span>
+<span class="nc" id="L77">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L78">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L79">                .addGap(18, 18, 18)</span>
+<span class="nc" id="L80">                .addComponent(jLabel1)</span>
+<span class="nc" id="L81">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L82">                .addComponent(jLabel2)</span>
+<span class="nc" id="L83">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L84">                .addComponent(jLabel3)</span>
+<span class="nc" id="L85">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L86">                .addComponent(tfContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L87">                .addGap(18, 18, 18)</span>
+<span class="nc" id="L88">                .addComponent(btnAcceder)</span>
+<span class="nc" id="L89">                .addContainerGap(54, Short.MAX_VALUE))</span>
         );
 
-<span class="nc" id="L91">        pack();</span>
-<span class="nc" id="L92">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L92">        pack();</span>
+<span class="nc" id="L93">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void btnAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccederActionPerformed
-<span class="nc" id="L95">        String password = tfContrasena.getText();</span>
+<span class="nc" id="L96">        String password = tfContrasena.getText();</span>
         
-<span class="nc bnc" id="L97" title="All 2 branches missed.">        if(password.equals(&quot;1&quot;)){</span>
-<span class="nc" id="L98">            IU_Estadisticas estadisticas = new IU_Estadisticas(new javax.swing.JFrame(),true);</span>
-<span class="nc" id="L99">            this.setVisible(false);</span>
-<span class="nc" id="L100">            estadisticas.setVisible(true);  </span>
-<span class="nc" id="L101">        } else {</span>
-<span class="nc" id="L102">            JOptionPane.showMessageDialog(null, &quot;La contraseña de Directivos es erronea.&quot;, &quot;Autentificación Incorrecta&quot;, JOptionPane.WARNING_MESSAGE);</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">        if(password.equals(&quot;admin&quot;)){</span>
+<span class="nc" id="L99">            IU_Estadisticas estadisticas = new IU_Estadisticas(new javax.swing.JFrame(),true);</span>
+<span class="nc" id="L100">            this.setVisible(false);</span>
+<span class="nc" id="L101">            estadisticas.setVisible(true);  </span>
+<span class="nc" id="L102">        } else {</span>
+<span class="nc" id="L103">            JOptionPane.showMessageDialog(null, &quot;La contraseña de Directivos es erronea.&quot;, &quot;Autentificación Incorrecta&quot;, JOptionPane.WARNING_MESSAGE);</span>
         }
         
-<span class="nc" id="L105">    }//GEN-LAST:event_btnAccederActionPerformed</span>
+<span class="nc" id="L106">    }//GEN-LAST:event_btnAccederActionPerformed</span>
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-<span class="nc bnc" id="L117" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L118" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L119">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L120">                    break;</span>
-                }
-            }
-<span class="nc" id="L123">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L124">            java.util.logging.Logger.getLogger(IU_AutentificacionDirectivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L125">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L126">            java.util.logging.Logger.getLogger(IU_AutentificacionDirectivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L127">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L128">            java.util.logging.Logger.getLogger(IU_AutentificacionDirectivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L129">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L130">            java.util.logging.Logger.getLogger(IU_AutentificacionDirectivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L131">        }</span>
-        //&lt;/editor-fold&gt;
-
-        /* Create and display the dialog */
-<span class="nc" id="L135">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
-            public void run() {
-<span class="nc" id="L137">                IU_AutentificacionDirectivos dialog = new IU_AutentificacionDirectivos(new javax.swing.JFrame(), true);</span>
-<span class="nc" id="L138">                dialog.addWindowListener(new java.awt.event.WindowAdapter() {</span>
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-<span class="nc" id="L141">                        System.exit(0);</span>
-<span class="nc" id="L142">                    }</span>
-                });
-<span class="nc" id="L144">                dialog.setVisible(true);</span>
-<span class="nc" id="L145">            }</span>
-        });
-<span class="nc" id="L147">    }</span>
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if (&quot;Nimbus&quot;.equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(IU_AutentificacionDirectivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(IU_AutentificacionDirectivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(IU_AutentificacionDirectivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(IU_AutentificacionDirectivos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //&lt;/editor-fold&gt;
+//
+//        /* Create and display the dialog */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                IU_AutentificacionDirectivos dialog = new IU_AutentificacionDirectivos(new javax.swing.JFrame(), true);
+//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+//                    @Override
+//                    public void windowClosing(java.awt.event.WindowEvent e) {
+//                        System.exit(0);
+//                    }
+//                });
+//                dialog.setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceder;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField tfContrasena;
+    private javax.swing.JPasswordField tfContrasena;
     // End of variables declaration//GEN-END:variables
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

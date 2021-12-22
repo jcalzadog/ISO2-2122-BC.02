@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>esi.uclm</groupId>
     <artifactId>Gepi</artifactId>
-    <version>0.0.5</version>
+    <version>0.1.0</version>
     <packaging>jar</packaging><!-- -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -74,14 +74,14 @@
                         <ruleset>/rulesets/java/controversial.xml</ruleset>
                         <ruleset>/rulesets/java/optimizations.xml</ruleset>
                     </rulesets>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>pmd</report>
-                            <report>cpd</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
+                    <reportSets>
+                        <reportSet>
+                            <reports>
+                                <report>pmd</report>
+                                <report>cpd</report>
+                            </reports>
+                        </reportSet>
+                    </reportSets>
                 </configuration>
             </plugin>
             <plugin>
@@ -150,6 +150,50 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>esi.uclm.gepi.Presentacion.IU_Inicio</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>esi.uclm.gepi.Presentacion.IU_Inicio</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources/Imagenes</directory>
+                <targetPath>${project.build.directory}/src/main/resources/Imagenes</targetPath>
+            </resource>
+        </resources>
     </build>
 </project>

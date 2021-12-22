@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="12" failures="0" name="esi.uclm.gepi.Dominio.EnfermedadTest" time="0.017" errors="0" skipped="0">
+<testsuite tests="12" failures="0" name="esi.uclm.gepi.Dominio.EnfermedadTest" time="0.022" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_301\jre\bin"/>
@@ -65,15 +65,15 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testSetVacunas" time="0.012"/>
-  <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testIsConfinamiento" time="0.001"/>
-  <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testGetTemporalidad" time="0"/>
+  <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testSetVacunas" time="0.014"/>
+  <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testIsConfinamiento" time="0"/>
+  <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testGetTemporalidad" time="0.001"/>
   <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testGetMedicinas" time="0"/>
   <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testSetTemporalidad" time="0"/>
   <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testSetMedicinas" time="0"/>
-  <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testGetVacunas" time="0.003"/>
+  <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testGetVacunas" time="0.005"/>
   <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testSetConfinamiento" time="0"/>
-  <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testSetNombre" time="0"/>
+  <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testSetNombre" time="0.001"/>
   <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testGetNombre" time="0"/>
   <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testSetSintomas" time="0"/>
   <testcase classname="esi.uclm.gepi.Dominio.EnfermedadTest" name="testGetSintomas" time="0.001"/>

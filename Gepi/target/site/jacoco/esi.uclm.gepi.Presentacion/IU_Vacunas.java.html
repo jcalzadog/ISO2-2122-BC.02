@@ -503,47 +503,47 @@ public class IU_Vacunas extends javax.swing.JDialog {
         }
 <span class="nc" id="L504">    }//GEN-LAST:event_enviarSMSActionPerformed</span>
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-<span class="nc bnc" id="L516" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L517" title="All 2 branches missed.">                if (&quot;Windows&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L518">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L519">                    break;</span>
-                }
-            }
-<span class="nc" id="L522">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L523">            java.util.logging.Logger.getLogger(IU_Vacunas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L524">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L525">            java.util.logging.Logger.getLogger(IU_Vacunas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L526">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L527">            java.util.logging.Logger.getLogger(IU_Vacunas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L528">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L529">            java.util.logging.Logger.getLogger(IU_Vacunas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L530">        }</span>
-        //&lt;/editor-fold&gt;
-
-        /* Create and display the dialog */
-<span class="nc" id="L534">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
-            public void run() {
-<span class="nc" id="L536">                IU_Vacunas dialog = new IU_Vacunas(new javax.swing.JFrame(), true);</span>
-<span class="nc" id="L537">                dialog.addWindowListener(new java.awt.event.WindowAdapter() {</span>
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-<span class="nc" id="L540">                        System.exit(0);</span>
-<span class="nc" id="L541">                    }</span>
-                });
-<span class="nc" id="L543">                dialog.setVisible(true);</span>
-<span class="nc" id="L544">            }</span>
-        });
-<span class="nc" id="L546">    }</span>
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if (&quot;Windows&quot;.equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(IU_Vacunas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(IU_Vacunas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(IU_Vacunas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(IU_Vacunas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //&lt;/editor-fold&gt;
+//
+//        /* Create and display the dialog */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                IU_Vacunas dialog = new IU_Vacunas(new javax.swing.JFrame(), true);
+//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+//                    @Override
+//                    public void windowClosing(java.awt.event.WindowEvent e) {
+//                        System.exit(0);
+//                    }
+//                });
+//                dialog.setVisible(true);
+//            }
+//        });
+//    }
     
     public void rellenarTabla(){
 <span class="nc" id="L549">        tablaPersonas.getTableHeader().setReorderingAllowed(false);</span>
