@@ -32,7 +32,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("EstadÃ­sticas");
+        this.setTitle("Estadisticas");
         this.setResizable(false);
 
         try {
@@ -117,7 +117,7 @@ public class IU_Estadisticas extends javax.swing.JDialog {
             }
         });
 
-        //ESTADISTICAS CAMPAÃ‘AS   
+        //ESTADISTICAS CAMPANIAS   
         jListEnfermedades.setModel(model);
         jListEnfermedades.addListSelectionListener(e -> {
             String enfermedadSeleccionada = jListEnfermedades.getSelectedValue();
