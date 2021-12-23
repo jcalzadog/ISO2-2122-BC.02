@@ -17,7 +17,7 @@ Repositorio realizado para el proyecto de la asignatura  Ingeniería del Softwar
 
 ##  Ejecutable
 
-Descargar el ejecutable (V1.0.1) -->
+Descargar el ejecutable (V0.1.0) --> https://github.com/jcalzadog/ISO2-2122-BC.02/blob/main/Gepi/target/Gepi-0.1.0-jar-with-dependencies.jar
 
 
 
