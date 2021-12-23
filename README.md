@@ -15,6 +15,10 @@ Repositorio realizado para el proyecto de la asignatura  Ingeniería del Softwar
 
 •	Diego Alba Ruiz - diego.alba1@alu.uclm.es
 
+##  Ejecutable
+
+Descargar el ejecutable (V1.0.1) -->
+
 
 
 
