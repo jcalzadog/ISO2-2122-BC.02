@@ -18,7 +18,7 @@ Repositorio realizado para el proyecto de la asignatura  Ingeniería del Softwar
 ##  Ejecutable
 
 Descargar el ejecutable (V0.1.0) --> https://github.com/jcalzadog/ISO2-2122-BC.02/blob/main/Gepi/target/Gepi-0.1.0-jar-with-dependencies.jar
-(para que se muestren los iconos de la aplicacion es necesario tambien descargar la carpeta "src" que se encuentra en target y ponerla en el directorio desde donde ejecute el programa) https://github.com/jcalzadog/ISO2-2122-BC.02/blob/main/Gepi/src.zip
+(para que se muestren los iconos de la aplicacion es necesario tambien descargar la carpeta "src" que se genera en target y ponerla en el directorio desde donde ejecute el programa, pero puedes descargarla aqui provisionalmente) https://github.com/jcalzadog/ISO2-2122-BC.02/blob/main/Gepi/src.zip
 
 
 
